@@ -23,7 +23,7 @@ export default function WhatsAppFab() {
         href={site.whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Ask the AI assistant on WhatsApp at ${site.whatsappNumber}. Opens WhatsApp in a new tab.`}
+        aria-label={`Get help on WhatsApp at ${site.whatsappNumber}. Opens WhatsApp in a new tab.`}
         className="group pointer-events-auto inline-flex items-center gap-3 rounded-full border border-rose/30 bg-plum-deep/95 p-1.5 text-ivory shadow-[0_18px_40px_-18px_rgba(0,0,0,0.9)] backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-rose/60 hover:bg-plum-deep focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-rose motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:pr-4"
       >
         <span className="relative grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#25D366]">
@@ -43,10 +43,10 @@ export default function WhatsAppFab() {
 
         <span className="hidden flex-col text-left sm:flex">
           <span className="text-[0.82rem] font-semibold leading-tight text-ivory">
-            Ask the AI assistant
+            Get help on WhatsApp
           </span>
           <span className="mt-0.5 text-[0.68rem] font-medium leading-tight text-ivory/65">
-            WhatsApp · English, Urdu, Sindhi
+            Free · English, Urdu, Sindhi
           </span>
         </span>
       </a>

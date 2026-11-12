@@ -26,7 +26,7 @@ export default function TechnologyPage() {
             A phone she already owns. A question she is allowed to ask.
           </>
         }
-        intro="Jamhooriyat Saheliyan is a WhatsApp-based support service that helps rural women in Sindh understand public information and make Right to Information requests. This page describes exactly what the service does today — and what it does not."
+        intro="Jamhooriyat Saheliyan is a WhatsApp-based support service that helps rural women in Sindh understand public information and make Right to Information (RTI) requests. This page describes exactly what the service does today — and what it does not."
       >
         <div className="flex flex-wrap items-center gap-3">
           {site.whatsappLink ? (
@@ -71,8 +71,7 @@ export default function TechnologyPage() {
             {[
               {
                 k: "What it is",
-                v: "A WhatsApp-based service that answers questions about public information and explains how to make a Right to Information request.",
-              },
+                v: "A WhatsApp-based service that answers questions about public information and explains how to make a Right to Information request.",              },
               {
                 k: "Who it is for",
                 v: "Rural women in Sindh who want to ask a public institution a question, and the community facilitators who support them.",
@@ -120,11 +119,25 @@ export default function TechnologyPage() {
                 <SectionHeading
                   eyebrow="How it works"
                   title="Four steps, each labelled honestly."
-                  intro="The service is live in stages. We label every step so a first-time visitor knows what will happen next — and what is still being built."
+                  intro="Every step says whether it works today or is still being built. Live today means you can use it now. In development means we are testing it and will label it live only when it works."
                 />
               </Reveal>
 
-              <ol className="mt-10 space-y-3">
+              <Reveal delay={0.08}>
+                <div className="mt-8 rounded-2xl border border-rose/15 bg-plum-soft/35 p-5">
+                  <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
+                    Right to Information, in plain words
+                  </p>
+                  <p className="mt-2 text-[0.92rem] leading-relaxed text-ivory/70">
+                    Sindh has a law that lets any citizen ask a government office for information it
+                    holds — budgets, contracts, school records, water and health plans. The office is
+                    expected to answer. You do not need a lawyer, a contact or a computer. This
+                    service helps you ask clearly, and tells you where to send the request.
+                  </p>
+                </div>
+              </Reveal>
+
+              <ol className="mt-8 space-y-3">
                 {[
                   {
                     n: "01",

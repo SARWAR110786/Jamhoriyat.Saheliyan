@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { nav } from "@/content/site";
+import { nav, site } from "@/content/site";
 import Logo from "./Logo";
 
 export default function SiteHeader() {
@@ -117,12 +117,22 @@ export default function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link href="/partners#collaborate" className="btn btn-pink mt-8 w-full">
+        {site.whatsappLink && (
+          <a
+            href={site.whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-ghost mt-8 w-full"
+          >
+            Get help on WhatsApp
+          </a>
+        )}
+        <Link href="/partners#collaborate" className="btn btn-pink mt-3 w-full">
           Work With Us
           <Arrow />
         </Link>
         <p className="mt-6 text-sm leading-relaxed text-ivory/65">
-          Information is power. Every woman deserves the power to ask.
+          Free to use. English, Urdu and Sindhi. No app to install.
         </p>
       </div>
     </header>

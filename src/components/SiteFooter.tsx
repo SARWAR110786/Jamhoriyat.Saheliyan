@@ -21,8 +21,8 @@ export default function SiteFooter() {
           <div>
             <Logo />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-ivory/60">
-              A women-led feminist civic technology initiative helping rural women in Sindh access
-              public information, use their right to information and shape climate governance.
+              A free WhatsApp service that helps women in Sindh get answers from government offices,
+              use their right to information and take part in climate decisions.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {site.social.map((s) =>
@@ -65,6 +65,18 @@ export default function SiteFooter() {
           </FooterCol>
 
           <FooterCol title="Contact">
+            {site.whatsappLink && (
+              <li>
+                <a
+                  href={site.whatsappLink}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="link-underline text-sm font-semibold text-rose hover:text-white"
+                >
+                  WhatsApp: get help
+                </a>
+              </li>
+            )}
             <li>
               <a
                 href={`mailto:${site.email}`}
