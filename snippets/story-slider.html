@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Story gallery — Swiper.js</title>
+
+    <!-- Swiper 11 from CDN. If you use npm instead:
+         npm i swiper
+         import Swiper from "swiper";
+         import "swiper/css"; -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <style>
+      /* ── Page shell (delete everything down to "Gallery" if you only want
+            the component) ───────────────────────────────────────────────── */
+      :root {
+        --plum: #2a0f3d;
+        --plum-deep: #1a0726;
+        --plum-soft: #351550;
+        --rose: #ffd1e8;
+        --orchid: #c87be3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--plum-deep);
+        color: #fdf7fb;
+        font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+
+      .stories {
+        padding: 64px 0;
+      }
+
+      .stories__head {
+        max-width: 780px;
+        margin: 0 auto 40px;
+        padding: 0 24px;
+      }
+
+      .eyebrow {
+        margin: 0;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--orchid);
+      }
+
+      .stories__head h2 {
+        margin: 14px 0 0;
+        font-size: clamp(1.85rem, 4vw, 3rem);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+      }
+
+      .stories__head p.lede {
+        margin: 16px 0 0;
+        max-width: 560px;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: rgba(253, 247, 251, 0.65);
+      }
+
+      /* ── Gallery ─────────────────────────────────────────────────────── */
+      .stories__slider {
+        position: relative;
+        padding: 0 24px; /* room for the floating arrows */
+      }
+
+      .story-swiper {
+        overflow: hidden;
+      }
+
+      .story-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 209, 232, 0.12);
+        background: var(--plum-soft);
+        transition: border-color 0.4s ease;
+      }
+
+      .story-card:hover {
+        border-color: rgba(180, 79, 209, 0.45);
+      }
+
+      .story-card__media {
+        position: relative;
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+      }
+
+      .story-card__media img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .story-card:hover .story-card__media img {
+        transform: scale(1.06);
+      }
+
+      .story-card__scrim {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          to top,
+          var(--plum-deep) 0%,
+          rgba(26, 7, 38, 0.35) 55%,
+          rgba(26, 7, 38, 0.05) 100%
+        );
+      }
+
+      .story-card__body {
+        position: absolute;
+        inset-inline: 0;
+        bottom: 0;
+        padding: 18px;
+      }
+
+      .story-card__category {
+        margin: 0;
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--orchid);
+      }
+
+      .story-card__title {
+        margin: 8px 0 0;
+        font-size: 1.02rem;
+        line-height: 1.3;
+        color: #fdf7fb;
+      }
+
+      .story-card__meta {
+        display: flex;
+        gap: 8px;
+        margin: 10px 0 0;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 209, 232, 0.15);
+        font-size: 0.68rem;
+        color: rgba(253, 247, 251, 0.65);
+      }
+
+      .story-card__index {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(26, 7, 38, 0.7);
+        font-size: 0.62rem;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        color: rgba(253, 247, 251, 0.8);
+        backdrop-filter: blur(6px);
+      }
+
+      /* ── Floating arrows ─────────────────────────────────────────────── */
+      .nav-btn {
+        position: absolute;
+        top: 50%;
+        z-index: 10;
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        transform: translateY(-50%);
+        border-radius: 999px;
+        border: 1px solid rgba(255, 209, 232, 0.3);
+        background: rgba(26, 7, 38, 0.85);
+        color: #fdf7fb;
+        cursor: pointer;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+        transition: opacity 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+      }
+
+      .nav-btn:hover {
+        background: var(--plum);
+        border-color: rgba(255, 209, 232, 0.7);
+      }
+
+      .nav-btn:focus-visible {
+        outline: 3px solid var(--rose);
+        outline-offset: 2px;
+      }
+
+      .nav-btn:disabled {
+        opacity: 0.25;
+        cursor: not-allowed;
+      }
+
+      .nav-btn:disabled:hover {
+        background: rgba(26, 7, 38, 0.85);
+        border-color: rgba(255, 209, 232, 0.3);
+      }
+
+      .nav-btn--prev {
+        left: 0;
+      }
+
+      .nav-btn--next {
+        right: 0;
+      }
+
+      /* ── Progress bar ────────────────────────────────────────────────── */
+      .progress-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-top: 24px;
+        padding: 0 24px;
+      }
+
+      .progress {
+        position: relative;
+        flex: 1;
+        height: 3px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(255, 209, 232, 0.15);
+      }
+
+      .progress__bar {
+        position: absolute;
+        inset: 0;
+        display: block;
+        border-radius: 999px;
+        background: var(--rose);
+        transform: scaleX(0.02);
+        transform-origin: left;
+        transition: transform 0.3s ease-out;
+      }
+
+      .progress__count {
+        flex-shrink: 0;
+        margin: 0;
+        font-size: 0.72rem;
+        font-weight: 500;
+        font-variant-numeric: tabular-nums;
+        color: rgba(253, 247, 251, 0.55);
+      }
+
+      .progress__count span {
+        color: rgba(253, 247, 251, 0.3);
+      }
+
+      @media (min-width: 640px) {
+        .stories__slider,
+        .progress-row {
+          padding: 0 48px;
+        }
+
+        .nav-btn {
+          width: 44px;
+          height: 44px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .story-card__media img,
+        .nav-btn,
+        .progress__bar {
+          transition: none;
+        }
+
+        .story-card:hover .story-card__media img {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="stories" aria-labelledby="stories-title">
+      <div class="stories__head">
+        <p class="eyebrow">Story gallery</p>
+        <h2 id="stories-title">Faces and moments from the network.</h2>
+        <p class="lede">
+          Drag, swipe or use the arrows. Replace the placeholder images and the
+          text below with your own stories.
+        </p>
+      </div>
+
+      <div class="stories__slider">
+        <!-- Swiper -->
+        <div class="swiper story-swiper">
+          <div class="swiper-wrapper">
+            <!-- ── Slide 1 ─────────────────────────────────────────────── -->
+            <div class="swiper-slide">
+              <article class="story-card">
+                <div class="story-card__media">
+                  <img
+                    src="https://picsum.photos/seed/story-1/800/1000"
+                    alt="Placeholder for story one"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                  />
+                  <span class="story-card__scrim"></span>
+                  <span class="story-card__index">01</span>
+                  <div class="story-card__body">
+                    <p class="story-card__category">Women's voices</p>
+                    <h3 class="story-card__title">Before, I did not know I was allowed to ask.</h3>
+                    <p class="story-card__meta"><span>Story one</span><span>·</span><span>4 min read</span></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Slide 2 ─────────────────────────────────────────────── -->
+            <div class="swiper-slide">
+              <article class="story-card">
+                <div class="story-card__media">
+                  <img
+                    src="https://picsum.photos/seed/story-2/800/1000"
+                    alt="Placeholder for story two"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                  />
+                  <span class="story-card__scrim"></span>
+                  <span class="story-card__index">02</span>
+                  <div class="story-card__body">
+                    <p class="story-card__category">Feminist AI and civic tech</p>
+                    <h3 class="story-card__title">Designing with women, not for them.</h3>
+                    <p class="story-card__meta"><span>Story two</span><span>·</span><span>6 min read</span></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Slide 3 ─────────────────────────────────────────────── -->
+            <div class="swiper-slide">
+              <article class="story-card">
+                <div class="story-card__media">
+                  <img
+                    src="https://picsum.photos/seed/story-3/800/1000"
+                    alt="Placeholder for story three"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                  />
+                  <span class="story-card__scrim"></span>
+                  <span class="story-card__index">03</span>
+                  <div class="story-card__body">
+                    <p class="story-card__category">Democratic governance</p>
+                    <h3 class="story-card__title">What happens after the request is filed.</h3>
+                    <p class="story-card__meta"><span>Story three</span><span>·</span><span>5 min read</span></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Slide 4 ─────────────────────────────────────────────── -->
+            <div class="swiper-slide">
+              <article class="story-card">
+                <div class="story-card__media">
+                  <img
+                    src="https://picsum.photos/seed/story-4/800/1000"
+                    alt="Placeholder for story four"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                  />
+                  <span class="story-card__scrim"></span>
+                  <span class="story-card__index">04</span>
+                  <div class="story-card__body">
+                    <p class="story-card__category">Climate justice</p>
+                    <h3 class="story-card__title">Water, relief and the information nobody publishes.</h3>
+                    <p class="story-card__meta"><span>Story four</span><span>·</span><span>7 min read</span></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Slide 5 ─────────────────────────────────────────────── -->
+            <div class="swiper-slide">
+              <article class="story-card">
+                <div class="story-card__media">
+                  <img
+                    src="https://picsum.photos/seed/story-5/800/1000"
+                    alt="Placeholder for story five"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                  />
+                  <span class="story-card__scrim"></span>
+                  <span class="story-card__index">05</span>
+                  <div class="story-card__body">
+                    <p class="story-card__category">Research and policy</p>
+                    <h3 class="story-card__title">Measuring what a question changes.</h3>
+                    <p class="story-card__meta"><span>Story five</span><span>·</span><span>12 min read</span></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Slide 6 ─────────────────────────────────────────────── -->
+            <div class="swiper-slide">
+              <article class="story-card">
+                <div class="story-card__media">
+                  <img
+                    src="https://picsum.photos/seed/story-6/800/1000"
+                    alt="Placeholder for story six"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                  />
+                  <span class="story-card__scrim"></span>
+                  <span class="story-card__index">06</span>
+                  <div class="story-card__body">
+                    <p class="story-card__category">Digital rights</p>
+                    <h3 class="story-card__title">A shared phone is not a shared right.</h3>
+                    <p class="story-card__meta"><span>Story six</span><span>·</span><span>6 min read</span></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Slide 7 ─────────────────────────────────────────────── -->
+            <div class="swiper-slide">
+              <article class="story-card">
+                <div class="story-card__media">
+                  <img
+                    src="https://picsum.photos/seed/story-7/800/1000"
+                    alt="Placeholder for story seven"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                  />
+                  <span class="story-card__scrim"></span>
+                  <span class="story-card__index">07</span>
+                  <div class="story-card__body">
+                    <p class="story-card__category">Community-led innovation</p>
+                    <h3 class="story-card__title">The civic network, in its own words.</h3>
+                    <p class="story-card__meta"><span>Story seven</span><span>·</span><span>5 min read</span></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- ── Slide 8 ─────────────────────────────────────────────── -->
+            <div class="swiper-slide">
+              <article class="story-card">
+                <div class="story-card__media">
+                  <img
+                    src="https://picsum.photos/seed/story-8/800/1000"
+                    alt="Placeholder for story eight"
+                    width="800"
+                    height="1000"
+                    loading="lazy"
+                  />
+                  <span class="story-card__scrim"></span>
+                  <span class="story-card__index">08</span>
+                  <div class="story-card__body">
+                    <p class="story-card__category">Women's voices</p>
+                    <h3 class="story-card__title">Two outcomes, described carefully.</h3>
+                    <p class="story-card__meta"><span>Story eight</span><span>·</span><span>4 min read</span></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating arrows -->
+        <button class="nav-btn nav-btn--prev" type="button" aria-label="Previous stories">
+          <svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3.5 5.5 8l4.5 4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="nav-btn nav-btn--next" type="button" aria-label="Next stories">
+          <svg width="17" height="17" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M6 3.5 10.5 8 6 12.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        <!-- Progress -->
+        <div class="progress-row">
+          <div
+            class="progress"
+            role="progressbar"
+            aria-label="Story gallery progress"
+            aria-valuemin="1"
+            aria-valuemax="8"
+            aria-valuenow="1"
+          >
+            <span class="progress__bar"></span>
+          </div>
+          <p class="progress__count">
+            <b data-current>01</b><span> / </span><b data-total>08</b>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const swiper = new Swiper(".story-swiper", {
+        slidesPerView: 1.2, // phones: one card + a peek of the next
+        spaceBetween: 12,
+        speed: reduceMotion ? 0 : 550,
+        grabCursor: true,
+        watchSlidesProgress: true,
+        keyboard: { enabled: true, onlyInViewport: true },
+        a11y: {
+          enabled: true,
+          prevSlideMessage: "Previous story",
+          nextSlideMessage: "Next story",
+        },
+        breakpoints: {
+          640: { slidesPerView: 2.2, spaceBetween: 16 },
+          768: { slidesPerView: 2.5, spaceBetween: 20 }, // tablets
+          1024: { slidesPerView: 3.2, spaceBetween: 20 },
+          1280: { slidesPerView: 4, spaceBetween: 24 }, // desktop
+        },
+      });
+
+      const prevBtn = document.querySelector(".nav-btn--prev");
+      const nextBtn = document.querySelector(".nav-btn--next");
+      const bar = document.querySelector(".progress__bar");
+      const counter = document.querySelector("[data-current]");
+      const progressEl = document.querySelector(".progress");
+      const total = document.querySelectorAll(".swiper-slide").length;
+
+      document.querySelector("[data-total]").textContent = String(total).padStart(2, "0");
+      progressEl.setAttribute("aria-valuemax", String(total));
+
+      prevBtn.addEventListener("click", () => swiper.slidePrev());
+      nextBtn.addEventListener("click", () => swiper.slideNext());
+
+      function paint() {
+        bar.style.transform = `scaleX(${Math.max(swiper.progress, 0.02)})`;
+        counter.textContent = String(swiper.activeIndex + 1).padStart(2, "0");
+        progressEl.setAttribute("aria-valuenow", String(swiper.activeIndex + 1));
+        prevBtn.disabled = swiper.isBeginning;
+        nextBtn.disabled = swiper.isEnd;
+      }
+
+      swiper.on("slideChange", paint);
+      swiper.on("progress", paint);
+      swiper.on("reachBeginning", paint);
+      swiper.on("reachEnd", paint);
+      swiper.on("fromEdge", paint);
+      swiper.on("resize", paint);
+      paint();
+    </script>
+  </body>
+</html>
