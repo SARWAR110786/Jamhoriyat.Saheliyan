@@ -41,7 +41,7 @@ export default function GalleryGrid({ photos }: { photos: ArchivePhoto[] }) {
             className="group relative mb-3 block w-full break-inside-avoid overflow-hidden rounded-xl border border-ink/10 bg-plum-soft text-left focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-violet sm:mb-4"
           >
             <Image
-              src={`/photos/${photo.id}.webp`}
+              src={`/photos/thumbs/${photo.id}.webp`}
               alt={photo.alt}
               width={photo.w}
               height={photo.h}

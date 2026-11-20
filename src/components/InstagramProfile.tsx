@@ -141,7 +141,7 @@ export default function InstagramProfile() {
                     aria-label={`${p.alt} — see more on Instagram`}
                   >
                     <Image
-                      src={`/photos/${p.id}.webp`}
+                      src={`/photos/thumbs/${p.id}.webp`}
                       alt=""
                       fill
                       sizes="(max-width: 896px) 33vw, 300px"

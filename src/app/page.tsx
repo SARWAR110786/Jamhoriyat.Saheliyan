@@ -833,7 +833,7 @@ function FieldPhotos() {
                 className="group block overflow-hidden rounded-xl border border-ink/10 bg-plum-soft"
               >
                 <Image
-                  src={`/photos/${p.id}.webp`}
+                  src={`/photos/thumbs/${p.id}.webp`}
                   alt={p.alt}
                   width={p.w}
                   height={p.h}

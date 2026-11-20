@@ -40,7 +40,7 @@ THUMB = OUT / "thumbs"
 # Keep the full native resolution of every source (most are 1280-1600px; the
 # iPhone HEIC files are 3024-5712px). Downscaling was the main cause of soft
 # photos on large screens, so only very large files are capped.
-MAX_EDGE = 3200
+MAX_EDGE = 2400
 THUMB_EDGE = 800
 # 92 is visually lossless for WebP at these sizes. The Next.js image optimiser
 # re-encodes once more, so the source must start clean.
