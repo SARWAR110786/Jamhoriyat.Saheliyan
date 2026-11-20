@@ -33,15 +33,15 @@ const P = (photo: Photo) => photo;
 export const photos = {
   // ── Hero ───────────────────────────────────────────────────────────────────
   heroMain: P({
-    id: "p037-whatsapp-image-2026-09-15-at-11-03-13-pm",
-    alt: "A large group of women gathered in a community hall during a Jamhooriyat Saheliyan session.",
+    id: "p008-img-0284",
+    alt: "Women and facilitators of Jamhooriyat Saheliyan standing together in a courtyard beside the consultation meeting banners.",
     caption: "Community session, Sindh. [Confirm location and consent]",
     consent: false,
     focus: "50% 40%",
   }),
   heroSide: P({
-    id: "p064-whatsapp-image-2026-09-16-at-12-32-48-am",
-    alt: "A woman speaking with others during a Jamhooriyat Saheliyan workshop.",
+    id: "p005-img-0248",
+    alt: "A woman in a bright, multicoloured dupatta listening closely during a consultation meeting.",
     caption: "Workshop participant. [Confirm name, place and consent]",
     consent: false,
     focus: "50% 30%",
@@ -170,7 +170,7 @@ export const photos = {
     focus: "50% 25%",
   }),
   storyFive: P({
-    id: "p005-img-0248",
+    id: "p064-whatsapp-image-2026-09-16-at-12-32-48-am",
     alt: "Portrait of a participant at a community workshop.",
     caption: "Workshop participant. [Confirm name and consent]",
     consent: false,
@@ -232,7 +232,7 @@ export const photos = {
     consent: false,
   }),
   extraFour: P({
-    id: "p008-img-0284",
+    id: "p037-whatsapp-image-2026-09-15-at-11-03-13-pm",
     alt: "A wide view of a Jamhooriyat Saheliyan gathering.",
     caption: "Gathering. [Confirm place and consent]",
     consent: false,

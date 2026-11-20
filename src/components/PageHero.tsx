@@ -23,17 +23,17 @@ export default function PageHero({
       </div>
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 top-10 h-[26rem] w-[26rem] rounded-full bg-violet/25 blur-[130px]"
+        className="pointer-events-none absolute -right-24 top-10 h-[26rem] w-[26rem] rounded-full bg-pink/10 blur-[130px]"
       />
       <div className="shell relative z-10">
         <div className={image ? "grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]" : ""}>
           <div className="max-w-3xl">
             <p className="eyebrow">{eyebrow}</p>
-            <h1 className="mt-5 text-balance text-[clamp(2.2rem,5.4vw,4rem)] font-bold leading-[1.02] text-ivory">
+            <h1 className="mt-5 text-balance text-[clamp(2.2rem,5.4vw,4rem)] font-bold leading-[1.02] text-ink">
               {title}
             </h1>
             {intro && (
-              <div className="mt-6 max-w-2xl text-pretty text-[1.06rem] leading-relaxed text-ivory/68">
+              <div className="mt-6 max-w-2xl text-pretty text-[1.06rem] leading-relaxed text-ink/68">
                 {intro}
               </div>
             )}

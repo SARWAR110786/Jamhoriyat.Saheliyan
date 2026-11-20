@@ -29,7 +29,7 @@ export default function StoriesGrid() {
               className={`rounded-full border px-3.5 py-1.5 text-[0.78rem] font-medium transition-colors ${
                 on
                   ? "border-pink-deep bg-pink-deep text-white"
-                  : "border-rose/20 text-ivory/65 hover:border-rose/50 hover:text-ivory"
+                  : "border-rose/20 text-ink/65 hover:border-rose/50 hover:text-ink"
               }`}
             >
               {c}
@@ -38,7 +38,7 @@ export default function StoriesGrid() {
         })}
       </div>
 
-      <p className="mt-4 text-[0.75rem] text-ivory/60" aria-live="polite">
+      <p className="mt-4 text-[0.75rem] text-ink/60" aria-live="polite">
         {visible.length} {visible.length === 1 ? "entry" : "entries"}
         {active !== "All" && ` in ${active}`}
       </p>
@@ -63,13 +63,13 @@ export default function StoriesGrid() {
               <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
                 {s.category}
               </p>
-              <h3 className="mt-2.5 text-balance font-display text-[1.12rem] font-semibold leading-snug text-ivory">
+              <h3 className="mt-2.5 text-balance font-display text-[1.12rem] font-semibold leading-snug text-ink">
                 {s.title}
               </h3>
-              <p className="mt-2.5 flex-1 text-[0.88rem] leading-relaxed text-ivory/65">
+              <p className="mt-2.5 flex-1 text-[0.88rem] leading-relaxed text-ink/65">
                 {s.excerpt}
               </p>
-              <div className="mt-4 flex items-center justify-between border-t border-rose/10 pt-3.5 text-[0.7rem] text-ivory/60">
+              <div className="mt-4 flex items-center justify-between border-t border-rose/10 pt-3.5 text-[0.7rem] text-ink/60">
                 <span>{s.date}</span>
                 <span>{s.read} read</span>
               </div>
@@ -79,7 +79,7 @@ export default function StoriesGrid() {
       </div>
 
       {visible.length === 0 && (
-        <p className="mt-12 rounded-xl border border-dashed border-rose/20 p-8 text-center text-sm text-ivory/62">
+        <p className="mt-12 rounded-xl border border-dashed border-rose/20 p-8 text-center text-sm text-ink/62">
           Nothing published in this section yet.
         </p>
       )}

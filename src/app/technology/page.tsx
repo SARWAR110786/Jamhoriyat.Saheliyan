@@ -57,7 +57,7 @@ export default function TechnologyPage() {
           )}
         </div>
         {site.liveLanguages && (
-          <p className="mt-4 text-[0.78rem] text-ivory/65">
+          <p className="mt-4 text-[0.78rem] text-ink/65">
             Working today in {site.liveLanguages.join(", ")}. Free to message from any phone with
             WhatsApp.
           </p>
@@ -84,7 +84,7 @@ export default function TechnologyPage() {
               <Reveal key={c.k} delay={i * 0.08}>
                 <div className="card-light h-full p-7">
                   <p className="eyebrow text-violet">{c.k}</p>
-                  <p className="mt-4 text-[0.98rem] leading-relaxed text-plum/72">{c.v}</p>
+                  <p className="mt-4 text-[0.98rem] leading-relaxed text-ink/72">{c.v}</p>
                   {c.k === "How to access it" && site.whatsappLink && (
                     <p className="mt-4 rounded-lg bg-violet/6 p-3 text-[0.78rem] leading-relaxed text-violet ring-1 ring-inset ring-violet/15">
                       Message{" "}
@@ -110,7 +110,7 @@ export default function TechnologyPage() {
       <section className="relative overflow-hidden bg-plum py-20 md:py-28">
         <div
           aria-hidden
-          className="pointer-events-none absolute left-0 top-1/3 h-[26rem] w-[26rem] rounded-full bg-violet/18 blur-[140px]"
+          className="pointer-events-none absolute left-0 top-1/3 h-[26rem] w-[26rem] rounded-full bg-pink/10 blur-[140px]"
         />
         <div className="shell relative z-10">
           <div className="grid items-start gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
@@ -128,7 +128,7 @@ export default function TechnologyPage() {
                   <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
                     Right to Information, in plain words
                   </p>
-                  <p className="mt-2 text-[0.92rem] leading-relaxed text-ivory/70">
+                  <p className="mt-2 text-[0.92rem] leading-relaxed text-ink/70">
                     Sindh has a law that lets any citizen ask a government office for information it
                     holds — budgets, contracts, school records, water and health plans. The office is
                     expected to answer. You do not need a lawyer, a contact or a computer. This
@@ -171,12 +171,12 @@ export default function TechnologyPage() {
                       </span>
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-center gap-3">
-                          <h3 className="font-display text-[1.05rem] font-semibold text-ivory">
+                          <h3 className="font-display text-[1.05rem] font-semibold text-ink">
                             {step.t}
                           </h3>
                           <Status state={step.s} />
                         </div>
-                        <p className="mt-1.5 text-[0.9rem] leading-relaxed text-ivory/65">
+                        <p className="mt-1.5 text-[0.9rem] leading-relaxed text-ink/65">
                           {step.d}
                         </p>
                       </div>
@@ -209,11 +209,11 @@ export default function TechnologyPage() {
             </Reveal>
 
             <Reveal delay={0.1} className="min-w-0">
-              <div className="overflow-hidden rounded-2xl border border-plum/10 bg-white">
+              <div className="overflow-hidden rounded-2xl border border-ink/10 bg-white">
                 <table className="w-full table-fixed text-left">
                   <caption className="sr-only">Language availability</caption>
                   <thead>
-                    <tr className="border-b border-plum/10 bg-plum/4 text-[0.66rem] uppercase tracking-[0.14em] text-plum/65">
+                    <tr className="border-b border-ink/10 bg-ink/4 text-[0.66rem] uppercase tracking-[0.14em] text-ink/65">
                       <th scope="col" className="px-4 py-3 font-semibold sm:px-5">
                         Language
                       </th>
@@ -224,15 +224,15 @@ export default function TechnologyPage() {
                   </thead>
                   <tbody>
                     {languages.map((l) => (
-                      <tr key={l.code} className="border-b border-plum/6 last:border-0">
-                        <td className="px-4 py-4 text-[0.92rem] font-medium text-plum sm:px-5">
+                      <tr key={l.code} className="border-b border-ink/6 last:border-0">
+                        <td className="px-4 py-4 text-[0.92rem] font-medium text-ink sm:px-5">
                           <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
                             {l.name}
-                            <span className="rounded bg-plum/6 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-wider text-plum/65">
+                            <span className="rounded bg-ink/6 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-wider text-ink/65">
                               {l.dir === "rtl" ? "RTL" : "LTR"}
                             </span>
                           </span>
-                          <span className="mt-0.5 block text-[0.74rem] font-normal text-plum/65">
+                          <span className="mt-0.5 block text-[0.74rem] font-normal text-ink/65">
                             {l.dir === "rtl" ? "Right to left" : "Left to right"}
                           </span>
                         </td>
@@ -244,7 +244,7 @@ export default function TechnologyPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="mt-4 text-[0.78rem] leading-relaxed text-plum/65">
+              <p className="mt-4 text-[0.78rem] leading-relaxed text-ink/65">
                 Text is the only format confirmed today. Voice notes, translation quality and
                 dialect coverage are still being tested — they are listed only once verified.
               </p>
@@ -266,7 +266,7 @@ export default function TechnologyPage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             <Reveal>
               <div className="h-full rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-7">
-                <h3 className="flex items-center gap-2.5 font-display text-lg font-semibold text-emerald-200">
+                <h3 className="flex items-center gap-2.5 font-display text-lg font-semibold text-emerald-800">
                   <Check /> It can help you
                 </h3>
                 <ul className="mt-5 space-y-3.5">
@@ -276,8 +276,8 @@ export default function TechnologyPage() {
                     "Draft a Right to Information request and explain the process.",
                     "Know what a reply should contain, and what to do if it does not come.",
                   ].map((t) => (
-                    <li key={t} className="flex gap-3 text-[0.94rem] leading-relaxed text-ivory/70">
-                      <Check className="mt-1 shrink-0 text-emerald-300/80" />
+                    <li key={t} className="flex gap-3 text-[0.94rem] leading-relaxed text-ink/70">
+                      <Check className="mt-1 shrink-0 text-emerald-700/80" />
                       {t}
                     </li>
                   ))}
@@ -297,7 +297,7 @@ export default function TechnologyPage() {
                     "File a request on your behalf or represent you.",
                     "Access private records that the law does not make public.",
                   ].map((t) => (
-                    <li key={t} className="flex gap-3 text-[0.94rem] leading-relaxed text-ivory/70">
+                    <li key={t} className="flex gap-3 text-[0.94rem] leading-relaxed text-ink/70">
                       <Cross className="mt-1 shrink-0 text-rose/70" />
                       {t}
                     </li>
@@ -308,7 +308,7 @@ export default function TechnologyPage() {
           </div>
 
           <Reveal delay={0.18}>
-            <p className="mx-auto mt-8 max-w-2xl text-center text-[0.8rem] leading-relaxed text-ivory/60">
+            <p className="mx-auto mt-8 max-w-2xl text-center text-[0.8rem] leading-relaxed text-ink/60">
               The service lowers a barrier; it does not remove structural inequality. Institutions
               still have a duty to answer.
             </p>
@@ -334,7 +334,7 @@ export default function TechnologyPage() {
                   <span className="mt-0.5 text-violet">
                     <Shield />
                   </span>
-                  <p className="text-[0.86rem] leading-relaxed text-plum/70">
+                  <p className="text-[0.86rem] leading-relaxed text-ink/70">
                     You can ask us to delete your data at any time, and you do not have to give a
                     reason. Write to{" "}
                     <a
@@ -378,8 +378,8 @@ export default function TechnologyPage() {
               ].map((c, i) => (
                 <Reveal key={c.t} delay={i * 0.05}>
                   <div className="card-light h-full p-5">
-                    <h3 className="font-display text-[0.98rem] font-semibold text-plum">{c.t}</h3>
-                    <p className="mt-2 text-[0.85rem] leading-relaxed text-plum/65">{c.d}</p>
+                    <h3 className="font-display text-[0.98rem] font-semibold text-ink">{c.t}</h3>
+                    <p className="mt-2 text-[0.85rem] leading-relaxed text-ink/65">{c.d}</p>
                   </div>
                 </Reveal>
               ))}
@@ -387,8 +387,8 @@ export default function TechnologyPage() {
           </div>
 
           <Reveal delay={0.2}>
-            <div className="mt-10 flex flex-col gap-3 rounded-xl border border-plum/10 bg-plum/3 p-5 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-[0.82rem] leading-relaxed text-plum/65">
+            <div className="mt-10 flex flex-col gap-3 rounded-xl border border-ink/10 bg-ink/3 p-5 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-[0.82rem] leading-relaxed text-ink/65">
                 The full privacy policy text is supplied by the team and published before launch.
               </p>
               <Link href="/privacy" className="btn btn-ghost-dark shrink-0 !py-2.5 !text-xs">

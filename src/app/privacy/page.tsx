@@ -16,7 +16,7 @@ export default function PrivacyPage() {
       updated="draft"
       intro="This page explains what we collect, why, who can see it, how long we keep it, and how to have it deleted. It is written in plain language on purpose."
     >
-      <p className="rounded-xl border border-violet/20 bg-violet/5 p-5 text-[0.9rem] leading-relaxed text-plum/70">
+      <p className="rounded-xl border border-violet/20 bg-violet/5 p-5 text-[0.9rem] leading-relaxed text-ink/70">
         This is a working draft. The final text is reviewed by the team and a legal adviser before
         launch, and the date above will be replaced with the publication date.
       </p>

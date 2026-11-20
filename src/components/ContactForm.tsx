@@ -62,7 +62,7 @@ export default function ContactForm({
   if (state === "sent") {
     return (
       <div className="rounded-2xl border border-emerald-400/25 bg-emerald-400/5 p-8 text-center">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-300">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-400/15 text-emerald-700">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path
               d="M5 12.5 10 17.5 19 7"
@@ -73,8 +73,8 @@ export default function ContactForm({
             />
           </svg>
         </div>
-        <h3 className="mt-5 font-display text-xl font-semibold text-ivory">Message received.</h3>
-        <p className="mx-auto mt-2 max-w-sm text-[0.9rem] leading-relaxed text-ivory/60">
+        <h3 className="mt-5 font-display text-xl font-semibold text-ink">Message received.</h3>
+        <p className="mx-auto mt-2 max-w-sm text-[0.9rem] leading-relaxed text-ink/60">
           Thank you. We collect only what is needed to respond, and we usually reply within three
           working days.
         </p>
@@ -131,7 +131,7 @@ export default function ContactForm({
           id="reason"
           value={fields.reason}
           onChange={(e) => update("reason", e.target.value)}
-          className="mt-2 w-full appearance-none rounded-xl border border-rose/20 bg-plum-deep/60 px-4 py-3 text-[0.92rem] text-ivory outline-none transition-colors focus:border-orchid"
+          className="mt-2 w-full appearance-none rounded-xl border border-rose/20 bg-plum-deep/60 px-4 py-3 text-[0.92rem] text-ink outline-none transition-colors focus:border-orchid"
         >
           {reasons.map((r) => (
             <option key={r} value={r} className="bg-plum-deep">
@@ -155,7 +155,7 @@ export default function ContactForm({
           value={fields.message}
           onChange={(e) => update("message", e.target.value)}
           placeholder="Tell us what you would like to build, fund or learn together."
-          className="mt-2 w-full resize-y rounded-xl border border-rose/20 bg-plum-deep/60 px-4 py-3 text-[0.92rem] leading-relaxed text-ivory placeholder:text-ivory/50 outline-none transition-colors focus:border-orchid"
+          className="mt-2 w-full resize-y rounded-xl border border-rose/20 bg-plum-deep/60 px-4 py-3 text-[0.92rem] leading-relaxed text-ink placeholder:text-ink/50 outline-none transition-colors focus:border-orchid"
         />
       </div>
 
@@ -172,7 +172,7 @@ export default function ContactForm({
         />
       </div>
 
-      <label className="flex cursor-pointer items-start gap-3 text-[0.8rem] leading-relaxed text-ivory/60">
+      <label className="flex cursor-pointer items-start gap-3 text-[0.8rem] leading-relaxed text-ink/60">
         <input
           type="checkbox"
           required
@@ -206,7 +206,7 @@ export default function ContactForm({
         {state === "sending" ? "Sending…" : "Send message"}
       </button>
 
-      <p className="text-center text-[0.7rem] leading-relaxed text-ivory/60">
+      <p className="text-center text-[0.7rem] leading-relaxed text-ink/60">
         Fields marked * are required. We collect only what is needed to respond.
       </p>
     </form>
@@ -238,7 +238,7 @@ function Field({
         htmlFor={id}
         className="block text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-orchid-light"
       >
-        {label} {required ? <span className="text-pink">*</span> : hint && <span className="normal-case tracking-normal text-ivory/60">({hint})</span>}
+        {label} {required ? <span className="text-pink">*</span> : hint && <span className="normal-case tracking-normal text-ink/60">({hint})</span>}
       </label>
       <input
         id={id}
@@ -248,7 +248,7 @@ function Field({
         value={value}
         autoComplete={autoComplete}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full rounded-xl border border-rose/20 bg-plum-deep/60 px-4 py-3 text-[0.92rem] text-ivory placeholder:text-ivory/50 outline-none transition-colors focus:border-orchid"
+        className="mt-2 w-full rounded-xl border border-rose/20 bg-plum-deep/60 px-4 py-3 text-[0.92rem] text-ink placeholder:text-ink/50 outline-none transition-colors focus:border-orchid"
       />
     </div>
   );

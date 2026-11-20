@@ -23,13 +23,13 @@ export default function LegalPage({
         </div>
         <div className="shell relative z-10">
           <p className="eyebrow">{eyebrow}</p>
-          <h1 className="mt-5 max-w-3xl text-balance text-[clamp(2rem,4.8vw,3.4rem)] font-bold leading-[1.05] text-ivory">
+          <h1 className="mt-5 max-w-3xl text-balance text-[clamp(2rem,4.8vw,3.4rem)] font-bold leading-[1.05] text-ink">
             {title}
           </h1>
           {intro && (
-            <p className="mt-5 max-w-2xl text-pretty leading-relaxed text-ivory/65">{intro}</p>
+            <p className="mt-5 max-w-2xl text-pretty leading-relaxed text-ink/65">{intro}</p>
           )}
-          <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-rose/20 px-3 py-1.5 text-[0.7rem] text-ivory/62">
+          <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-rose/20 px-3 py-1.5 text-[0.7rem] text-ink/62">
             <span className="h-1.5 w-1.5 rounded-full bg-amber-300" />
             Last updated: {updated} · pending legal review
           </p>
@@ -53,14 +53,14 @@ export default function LegalPage({
                   <Link
                     key={href}
                     href={href}
-                    className="link-underline w-fit text-plum/65 hover:text-plum"
+                    className="link-underline w-fit text-ink/65 hover:text-ink"
                   >
                     {label}
                   </Link>
                 ))}
               </nav>
             </aside>
-            <div className="max-w-2xl space-y-8 text-[0.98rem] leading-[1.8] text-plum/75">
+            <div className="max-w-2xl space-y-8 text-[0.98rem] leading-[1.8] text-ink/75">
               {children}
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function LegalPage({
 export function Clause({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section>
-      <h2 className="font-display text-[1.2rem] font-semibold text-plum">{title}</h2>
+      <h2 className="font-display text-[1.2rem] font-semibold text-ink">{title}</h2>
       <div className="mt-3 space-y-3">{children}</div>
     </section>
   );

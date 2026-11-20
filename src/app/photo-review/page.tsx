@@ -32,10 +32,10 @@ export default function PhotoReviewPage() {
     <div className="min-h-screen bg-plum pt-28">
       <div className="shell pb-24">
         <p className="eyebrow">Internal · not indexed</p>
-        <h1 className="mt-4 text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-ivory">
+        <h1 className="mt-4 text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-ink">
           Photo review
         </h1>
-        <p className="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-ivory/60">
+        <p className="mt-4 max-w-2xl text-[0.95rem] leading-relaxed text-ink/60">
           Every image slot used on the site, with its source file. Confirm the subject, rewrite the
           alt text and caption to match what is actually in the frame, then tick consent in{" "}
           <code className="rounded bg-plum-soft px-1.5 py-0.5 text-[0.8rem] text-rose">
@@ -49,7 +49,7 @@ export default function PhotoReviewPage() {
           confirmed.
         </div>
 
-        <h2 className="mt-14 font-display text-xl font-semibold text-ivory">Slots in use</h2>
+        <h2 className="mt-14 font-display text-xl font-semibold text-ink">Slots in use</h2>
         <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {slots.map(([key, p]) => (
             <figure
@@ -69,24 +69,24 @@ export default function PhotoReviewPage() {
                   <span
                     className={`rounded-full px-2 py-0.5 text-[0.58rem] font-bold uppercase tracking-wider ${
                       p.consent
-                        ? "bg-emerald-400/15 text-emerald-300"
+                        ? "bg-emerald-400/15 text-emerald-700"
                         : "bg-pink/15 text-rose"
                     }`}
                   >
                     {p.consent ? "consent" : "no consent"}
                   </span>
                 </p>
-                <p className="mt-2 break-all text-[0.68rem] text-ivory/60">{p.id}</p>
-                <p className="mt-2 text-[0.75rem] leading-relaxed text-ivory/65">{p.alt}</p>
+                <p className="mt-2 break-all text-[0.68rem] text-ink/60">{p.id}</p>
+                <p className="mt-2 text-[0.75rem] leading-relaxed text-ink/65">{p.alt}</p>
               </figcaption>
             </figure>
           ))}
         </div>
 
-        <h2 className="mt-16 font-display text-xl font-semibold text-ivory">
+        <h2 className="mt-16 font-display text-xl font-semibold text-ink">
           All converted images ({all.length})
         </h2>
-        <p className="mt-2 text-[0.82rem] text-ivory/62">
+        <p className="mt-2 text-[0.82rem] text-ink/62">
           Every file from the Photos folder, converted to WebP. Use an id from here in
           <code className="mx-1 rounded bg-plum-soft px-1.5 py-0.5 text-rose">photos.ts</code>.
         </p>

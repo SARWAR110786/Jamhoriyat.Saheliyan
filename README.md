@@ -57,18 +57,24 @@ Everything comes from the brief, p.2.
 
 | Token | Value | Used for |
 |---|---|---|
-| `plum` | `#2A0F3D` | backgrounds, text |
-| `plum-deep` | `#1A0726` | alternating dark sections, footer |
-| `violet` | `#6B2FB3` | headings on light, links |
-| `orchid` | `#B44FD1` | network, charts, eyebrows |
-| `pink` | `#EC4899` | buttons and highlights only |
-| `rose` | `#FFD1E8` | soft panels, dark-section text |
-| `ivory` | `#FDF7FB` | light sections |
+| `plum` | `#FFFFFF` | page background (name kept from the first, dark design) |
+| `plum-deep` | `#FFF3F8` | alternating blush sections, footer |
+| `plum-soft` | `#FFE4EF` | soft pink panels |
+| `ink` | `#2B1230` | body text and headings |
+| `violet` / `rose` / `orchid-light` | `#BE185D` | pink accent text, links, eyebrows |
+| `pink` | `#EC4899` | highlights, glows |
+| `pink-deep` | `#C2185B` | buttons (white text passes WCAG AA) |
+| `ivory` | `#FFF8FB` | light sections |
 
 - **Headings** Bricolage Grotesque · **Body** Public Sans (loaded via `next/font`).
-- **Photo treatment** `.photo-tint` applies a light plum→violet→pink soft-light
-  gradient (~55% opacity) so the brand reads without flattening the image.
-  `.photo-fade` adds a bottom scrim only where text sits over an image.
+- **Photo treatment** photos are shown as they are — no colour overlay (the old
+  plum tint made them look hazy). `scripts/prep-photos.py` applies a gentle
+  sharpen to WhatsApp-compressed images. `.photo-fade` adds a dark bottom scrim
+  only where text sits over an image; wrap that text in `.on-photo`.
+- **Chatbot screens** `/public/chatbot/step-01…13.webp` are real screenshots of
+  the live bot, listed with captions in `src/content/chatbot.ts`.
+- **Instagram** set `site.instagram.posts` in `src/content/site.ts` to post or
+  reel links to show live embeds on the home page.
 - **Motion** hero network on `<canvas>`, count-up figures, scroll reveals, hover
   lifts. All of it is disabled when the visitor has *reduce motion* enabled.
 - **Mobile first.** Tested from 320px up. The hero network drops to ~18 nodes on

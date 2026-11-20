@@ -57,9 +57,24 @@ export const site = {
   reportingPeriod: null as string | null, // e.g. "January 2024 – June 2025"
   methodologyNote: null as string | null,
 
+  // ── Instagram (home page profile block) ───────────────────────────────────
+  instagram: {
+    handle: "jamhooriyatsaheliyan",
+    url: "https://www.instagram.com/jamhooriyatsaheliyan/",
+    /**
+     * Paste links to real posts or reels here, e.g.
+     *   "https://www.instagram.com/p/XXXXXXXXXXX/"
+     *   "https://www.instagram.com/reel/XXXXXXXXXXX/"
+     * When this list has links, the home page shows the live Instagram
+     * embeds. While it is empty, it shows a profile-style grid of field photos
+     * that links to the profile.
+     */
+    posts: [] as string[],
+  },
+
   // ── Social ─────────────────────────────────────────────────────────────────
   social: [
-    { label: "Instagram", href: null as string | null },
+    { label: "Instagram", href: "https://www.instagram.com/jamhooriyatsaheliyan/" as string | null },
     { label: "LinkedIn", href: null as string | null },
     { label: "Facebook", href: null as string | null },
     { label: "YouTube", href: null as string | null },

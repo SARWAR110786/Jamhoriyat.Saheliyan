@@ -18,16 +18,16 @@ export default function CTABand({
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet/20 blur-[140px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-pink/10 blur-[140px]"
       />
       <div className="shell relative z-10">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow justify-center">{eyebrow}</p>
-            <h2 className="mt-5 text-balance text-[clamp(2rem,5vw,3.4rem)] font-bold leading-[1.04] text-ivory">
+            <h2 className="mt-5 text-balance text-[clamp(2rem,5vw,3.4rem)] font-bold leading-[1.04] text-ink">
               {title}
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-pretty leading-relaxed text-ivory/65">{body}</p>
+            <p className="mx-auto mt-5 max-w-2xl text-pretty leading-relaxed text-ink/65">{body}</p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
               <Link href="/partners#collaborate" className="btn btn-pink">
                 Start a conversation

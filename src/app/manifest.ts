@@ -9,8 +9,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Women-led feminist civic technology initiative in Pakistan, helping rural women access public information, use their right to information and shape climate governance.",
     start_url: "/",
     display: "standalone",
-    background_color: "#2A0F3D",
-    theme_color: "#2A0F3D",
+    background_color: "#ffffff",
+    theme_color: "#ffffff",
     lang: "en-PK",
     icons: [
       {
