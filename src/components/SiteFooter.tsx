@@ -9,7 +9,7 @@ export default function SiteFooter() {
     <footer className="relative overflow-hidden border-t border-rose/10 bg-plum-deep">
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-40 top-0 h-[26rem] w-[26rem] rounded-full bg-violet/20 blur-[120px]"
+        className="pointer-events-none absolute -left-40 top-0 h-[26rem] w-[26rem] rounded-full bg-pink/10 blur-[120px]"
       />
       <div
         aria-hidden
@@ -20,7 +20,7 @@ export default function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Logo />
-            <p className="mt-5 max-w-xs text-sm leading-relaxed text-ivory/60">
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-ink/60">
               A free WhatsApp service that helps women in Sindh get answers from government offices,
               use their right to information and take part in climate decisions.
             </p>
@@ -32,14 +32,14 @@ export default function SiteFooter() {
                     href={s.href}
                     rel="noopener noreferrer"
                     target="_blank"
-                    className="rounded-full border border-rose/20 px-3.5 py-1.5 text-xs text-ivory/70 transition-colors hover:border-rose/50 hover:text-ivory"
+                    className="rounded-full border border-rose/20 px-3.5 py-1.5 text-xs text-ink/70 transition-colors hover:border-rose/50 hover:text-ink"
                   >
                     {s.label}
                   </a>
                 ) : (
                   <span
                     key={s.label}
-                    className="rounded-full border border-dashed border-rose/20 px-3.5 py-1.5 text-xs text-ivory/60"
+                    className="rounded-full border border-dashed border-rose/20 px-3.5 py-1.5 text-xs text-ink/60"
                     title="Link to be supplied by the team before launch"
                   >
                     {s.label}
@@ -71,7 +71,7 @@ export default function SiteFooter() {
                   href={site.whatsappLink}
                   rel="noopener noreferrer"
                   target="_blank"
-                  className="link-underline text-sm font-semibold text-rose hover:text-white"
+                  className="link-underline text-sm font-semibold text-rose hover:text-pink-deep"
                 >
                   WhatsApp: get help
                 </a>
@@ -80,13 +80,13 @@ export default function SiteFooter() {
             <li>
               <a
                 href={`mailto:${site.email}`}
-                className="link-underline break-all text-sm text-ivory/70 hover:text-ivory"
+                className="link-underline break-all text-sm text-ink/70 hover:text-ink"
               >
                 {site.email}
               </a>
             </li>
-            <li className="text-sm text-ivory/65">{site.address}</li>
-            <li className="text-sm text-ivory/65">{site.officeHours}</li>
+            <li className="text-sm text-ink/65">{site.address}</li>
+            <li className="text-sm text-ink/65">{site.officeHours}</li>
             <li className="pt-2">
               <Link href="/partners#collaborate" className="btn btn-ghost !px-4 !py-2.5 !text-xs">
                 Work With Us
@@ -95,7 +95,7 @@ export default function SiteFooter() {
           </FooterCol>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-rose/10 pt-7 text-xs text-ivory/62 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-rose/10 pt-7 text-xs text-ink/62 md:flex-row md:items-center md:justify-between">
           <p>
             © {year} {site.name}. All rights reserved.
           </p>
@@ -127,7 +127,7 @@ function FooterCol({ title, children }: { title: string; children: React.ReactNo
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <li>
-      <Link href={href} className="link-underline text-sm text-ivory/70 hover:text-ivory">
+      <Link href={href} className="link-underline text-sm text-ink/70 hover:text-ink">
         {children}
       </Link>
     </li>

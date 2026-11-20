@@ -32,7 +32,7 @@ export default function SectionHeading({
       )}
       <Tag
         className={`mt-4 text-balance text-[clamp(1.85rem,4vw,3rem)] font-bold leading-[1.06] ${
-          isLight ? "text-plum" : "text-ivory"
+          isLight ? "text-ink" : "text-ink"
         }`}
       >
         {title}
@@ -40,7 +40,7 @@ export default function SectionHeading({
       {intro && (
         <div
           className={`mt-5 max-w-2xl text-pretty text-[1.02rem] leading-relaxed ${
-            isLight ? "text-plum/70" : "text-ivory/65"
+            isLight ? "text-ink/70" : "text-ink/65"
           } ${align === "center" ? "mx-auto" : ""}`}
         >
           {intro}

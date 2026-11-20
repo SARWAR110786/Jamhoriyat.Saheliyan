@@ -66,11 +66,11 @@ export default function PartnersPage() {
             />
           </Reveal>
 
-          <div className="mt-10 overflow-hidden rounded-2xl border border-plum/10 bg-white">
+          <div className="mt-10 overflow-hidden rounded-2xl border border-ink/10 bg-white">
             <table className="w-full text-left">
               <caption className="sr-only">Partner types and how we can work together</caption>
               <thead>
-                <tr className="border-b border-plum/10 bg-plum/4 text-[0.66rem] uppercase tracking-[0.14em] text-plum/65">
+                <tr className="border-b border-ink/10 bg-ink/4 text-[0.66rem] uppercase tracking-[0.14em] text-ink/65">
                   <th scope="col" className="px-6 py-3.5 font-semibold">
                     You are a…
                   </th>
@@ -81,13 +81,13 @@ export default function PartnersPage() {
               </thead>
               <tbody>
                 {partnerTypes.map((p) => (
-                  <tr key={p.who} className="group border-b border-plum/6 last:border-0">
+                  <tr key={p.who} className="group border-b border-ink/6 last:border-0">
                     <td className="w-[38%] px-6 py-5 align-top">
-                      <span className="font-display text-[1rem] font-semibold leading-snug text-plum">
+                      <span className="font-display text-[1rem] font-semibold leading-snug text-ink">
                         {p.who}
                       </span>
                     </td>
-                    <td className="px-6 py-5 text-[0.92rem] leading-relaxed text-plum/65">
+                    <td className="px-6 py-5 text-[0.92rem] leading-relaxed text-ink/65">
                       {p.how}
                     </td>
                   </tr>
@@ -97,7 +97,7 @@ export default function PartnersPage() {
           </div>
 
           <Reveal delay={0.12}>
-            <p className="mt-5 text-[0.78rem] leading-relaxed text-plum/65">
+            <p className="mt-5 text-[0.78rem] leading-relaxed text-ink/65">
               Three university partnerships exist today. Named partners and logos are published
               only once confirmed in writing.
             </p>
@@ -142,7 +142,7 @@ export default function PartnersPage() {
       <section id="collaborate" className="relative scroll-mt-20 overflow-hidden bg-plum-deep py-20 md:py-28">
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-32 top-0 h-[30rem] w-[30rem] rounded-full bg-violet/20 blur-[150px]"
+          className="pointer-events-none absolute -right-32 top-0 h-[30rem] w-[30rem] rounded-full bg-pink/10 blur-[150px]"
         />
         <div className="shell relative z-10">
           <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
@@ -170,7 +170,7 @@ export default function PartnersPage() {
 
               <Reveal delay={0.16}>
                 <div className="mt-8 rounded-xl border border-rose/15 bg-plum/40 p-5">
-                  <p className="text-[0.8rem] leading-relaxed text-ivory/65">
+                  <p className="text-[0.8rem] leading-relaxed text-ink/65">
                     We collect only what is needed to respond. We do not sell or share your details.
                     Women using our service can ask us to delete their data at any time.
                   </p>
@@ -180,10 +180,10 @@ export default function PartnersPage() {
 
             <Reveal delay={0.08}>
               <div className="rounded-2xl border border-rose/15 bg-plum/50 p-6 backdrop-blur sm:p-8">
-                <h2 className="font-display text-xl font-semibold text-ivory">
+                <h2 className="font-display text-xl font-semibold text-ink">
                   Tell us about your interest
                 </h2>
-                <p className="mt-1.5 text-[0.85rem] text-ivory/62">
+                <p className="mt-1.5 text-[0.85rem] text-ink/62">
                   A short message is enough to start.
                 </p>
                 <div className="mt-6">
@@ -214,9 +214,9 @@ export default function PartnersPage() {
                 ["Governance", "Who decides, who holds the data, and how access is logged."],
               ].map(([t, d], i) => (
                 <Reveal key={t} delay={i * 0.06}>
-                  <div className="rounded-xl border border-plum/10 bg-white p-5">
-                    <p className="font-display text-[0.95rem] font-semibold text-plum">{t}</p>
-                    <p className="mt-1.5 text-[0.85rem] leading-relaxed text-plum/65">{d}</p>
+                  <div className="rounded-xl border border-ink/10 bg-white p-5">
+                    <p className="font-display text-[0.95rem] font-semibold text-ink">{t}</p>
+                    <p className="mt-1.5 text-[0.85rem] leading-relaxed text-ink/65">{d}</p>
                   </div>
                 </Reveal>
               ))}
@@ -245,12 +245,12 @@ function ContactRow({
       {href ? (
         <a
           href={href}
-          className="link-underline break-all text-right text-[0.9rem] text-ivory/75 hover:text-ivory"
+          className="link-underline break-all text-right text-[0.9rem] text-ink/75 hover:text-ink"
         >
           {value}
         </a>
       ) : (
-        <span className="text-right text-[0.9rem] text-ivory/60">{value}</span>
+        <span className="text-right text-[0.9rem] text-ink/60">{value}</span>
       )}
     </div>
   );

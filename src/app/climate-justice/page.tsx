@@ -49,13 +49,13 @@ export default function ClimateJusticePage() {
             </Reveal>
             <div>
               <Reveal delay={0.08}>
-                <p className="text-pretty text-[1.08rem] leading-[1.75] text-plum/75">
+                <p className="text-pretty text-[1.08rem] leading-[1.75] text-ink/75">
                   Climate finance and adaptation programmes increasingly commit to locally led,
                   gender-responsive delivery. That promise depends on a basic condition: women
                   closest to the impact must be able to see what is planned, ask what has been
                   spent, and be heard.
                 </p>
-                <p className="mt-5 text-pretty text-[1.08rem] leading-[1.75] text-plum/75">
+                <p className="mt-5 text-pretty text-[1.08rem] leading-[1.75] text-ink/75">
                   Jamhooriyat Saheliyan builds that condition at community level — not by speaking
                   for women at climate forums, but by making sure the information that forums
                   discuss can be reached, questioned and used at home.
@@ -71,12 +71,12 @@ export default function ClimateJusticePage() {
                   ].map(([k, v]) => (
                     <div
                       key={k}
-                      className="rounded-xl border border-plum/10 bg-plum/3 p-4"
+                      className="rounded-xl border border-ink/10 bg-ink/3 p-4"
                     >
                       <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-violet">
                         {k}
                       </p>
-                      <p className="mt-1.5 text-[0.86rem] leading-relaxed text-plum/65">{v}</p>
+                      <p className="mt-1.5 text-[0.86rem] leading-relaxed text-ink/65">{v}</p>
                     </div>
                   ))}
                 </div>
@@ -129,8 +129,8 @@ export default function ClimateJusticePage() {
                     {s.n}
                   </span>
                   <div>
-                    <h3 className="font-display text-[1.15rem] font-semibold text-ivory">{s.t}</h3>
-                    <p className="mt-2 text-[0.92rem] leading-relaxed text-ivory/65">{s.d}</p>
+                    <h3 className="font-display text-[1.15rem] font-semibold text-ink">{s.t}</h3>
+                    <p className="mt-2 text-[0.92rem] leading-relaxed text-ink/65">{s.d}</p>
                   </div>
                 </div>
               </Reveal>
@@ -190,7 +190,7 @@ export default function ClimateJusticePage() {
                       className="rounded-xl border border-rose/12 bg-plum-soft/35 p-5"
                     >
                       <p className="font-display text-[0.98rem] font-semibold text-rose">{t}</p>
-                      <p className="mt-1.5 text-[0.88rem] leading-relaxed text-ivory/65">{d}</p>
+                      <p className="mt-1.5 text-[0.88rem] leading-relaxed text-ink/65">{d}</p>
                     </div>
                   ))}
                 </div>

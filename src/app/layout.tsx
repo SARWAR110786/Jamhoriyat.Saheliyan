@@ -77,14 +77,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2A0F3D",
-  colorScheme: "dark",
+  themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bricolage.variable} ${publicSans.variable}`}>
-      <body className="min-h-dvh bg-plum font-sans text-ivory antialiased">
+      <body className="min-h-dvh bg-plum font-sans text-ink antialiased">
         <StructuredData data={[organizationSchema(), websiteSchema()]} />
         <a
           href="#main"

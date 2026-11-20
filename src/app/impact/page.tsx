@@ -27,7 +27,7 @@ export default function ImpactPage() {
       <section className="relative overflow-hidden bg-plum-deep pb-20 pt-14 md:pb-28 md:pt-20">
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-violet/18 blur-[140px]"
+          className="pointer-events-none absolute left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-pink/10 blur-[140px]"
         />
         <div className="shell relative z-10">
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
@@ -40,7 +40,7 @@ export default function ImpactPage() {
                   <p className="mt-4 text-[0.74rem] font-semibold uppercase tracking-[0.14em] text-orchid-light">
                     {f.label}
                   </p>
-                  <p className="mt-2.5 text-[0.82rem] leading-relaxed text-ivory/62">{f.detail}</p>
+                  <p className="mt-2.5 text-[0.82rem] leading-relaxed text-ink/62">{f.detail}</p>
                 </div>
               </Reveal>
             ))}
@@ -52,7 +52,7 @@ export default function ImpactPage() {
                 <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
                   Reporting period
                 </p>
-                <p className="mt-1.5 text-[0.88rem] text-ivory/60">
+                <p className="mt-1.5 text-[0.88rem] text-ink/60">
                   {site.reportingPeriod ?? (
                     <span className="rounded bg-rose/10 px-1.5 py-0.5 font-medium text-rose ring-1 ring-inset ring-rose/25">
                       To be confirmed by the team
@@ -64,7 +64,7 @@ export default function ImpactPage() {
                 <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
                   Method
                 </p>
-                <p className="mt-1.5 text-[0.88rem] text-ivory/60">
+                <p className="mt-1.5 text-[0.88rem] text-ink/60">
                   {site.methodologyNote ?? (
                     <span className="rounded bg-rose/10 px-1.5 py-0.5 font-medium text-rose ring-1 ring-inset ring-rose/25">
                       To be confirmed — how participation and reports were counted
@@ -90,11 +90,11 @@ export default function ImpactPage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="mt-10 overflow-x-auto rounded-2xl border border-plum/10 bg-white">
+            <div className="mt-10 overflow-x-auto rounded-2xl border border-ink/10 bg-white">
               <table className="w-full min-w-[38rem] text-left">
                 <caption className="sr-only">Impact figures and their definitions</caption>
                 <thead>
-                  <tr className="border-b border-plum/10 bg-plum/4 text-[0.66rem] uppercase tracking-[0.14em] text-plum/65">
+                  <tr className="border-b border-ink/10 bg-ink/4 text-[0.66rem] uppercase tracking-[0.14em] text-ink/65">
                     <th scope="col" className="px-6 py-3.5 font-semibold">
                       Figure
                     </th>
@@ -108,17 +108,17 @@ export default function ImpactPage() {
                 </thead>
                 <tbody>
                   {impactFigures.map((f) => (
-                    <tr key={f.label} className="border-b border-plum/6 last:border-0">
+                    <tr key={f.label} className="border-b border-ink/6 last:border-0">
                       <td className="whitespace-nowrap px-6 py-4">
                         <span className="font-display text-lg font-bold text-violet">
                           {f.value}
                         </span>
-                        <span className="ml-2 text-[0.82rem] text-plum/65">{f.label}</span>
+                        <span className="ml-2 text-[0.82rem] text-ink/65">{f.label}</span>
                       </td>
-                      <td className="px-6 py-4 text-[0.9rem] leading-relaxed text-plum/70">
+                      <td className="px-6 py-4 text-[0.9rem] leading-relaxed text-ink/70">
                         {f.detail}
                       </td>
-                      <td className="px-6 py-4 text-[0.8rem] text-plum/65">
+                      <td className="px-6 py-4 text-[0.8rem] text-ink/65">
                         Initiative-reported
                       </td>
                     </tr>
@@ -129,7 +129,7 @@ export default function ImpactPage() {
           </Reveal>
 
           <Reveal delay={0.16}>
-            <p className="mt-5 max-w-3xl text-[0.8rem] leading-relaxed text-plum/65">
+            <p className="mt-5 max-w-3xl text-[0.8rem] leading-relaxed text-ink/65">
               Figures are not extrapolated beyond the period in which they were collected, and are
               not combined across programmes. If a number changes after verification, the page is
               updated and the change is noted.
@@ -178,11 +178,11 @@ export default function ImpactPage() {
                     <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
                       {c.kicker}
                     </p>
-                    <h3 className="mt-2.5 font-display text-[1.35rem] font-semibold text-ivory">
+                    <h3 className="mt-2.5 font-display text-[1.35rem] font-semibold text-ink">
                       {c.title}
                     </h3>
-                    <p className="mt-3 text-[0.94rem] leading-relaxed text-ivory/62">{c.body}</p>
-                    <p className="mt-4 flex items-center gap-2 text-[0.72rem] text-ivory/60">
+                    <p className="mt-3 text-[0.94rem] leading-relaxed text-ink/62">{c.body}</p>
+                    <p className="mt-4 flex items-center gap-2 text-[0.72rem] text-ink/60">
                       <span className="h-1 w-1 rounded-full bg-rose/50" />
                       {c.meta}
                     </p>
@@ -242,7 +242,7 @@ export default function ImpactPage() {
                 ].map(([t, d]) => (
                   <div key={t} className="rounded-xl border border-rose/12 bg-plum-soft/30 p-5">
                     <p className="font-display text-[0.96rem] font-semibold text-rose">{t}</p>
-                    <p className="mt-1.5 text-[0.88rem] leading-relaxed text-ivory/65">{d}</p>
+                    <p className="mt-1.5 text-[0.88rem] leading-relaxed text-ink/65">{d}</p>
                   </div>
                 ))}
               </div>

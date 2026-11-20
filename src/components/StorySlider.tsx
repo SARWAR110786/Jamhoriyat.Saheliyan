@@ -95,10 +95,10 @@ export default function StorySlider() {
                     <p className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
                       {story.category}
                     </p>
-                    <h3 className="mt-2 text-balance font-display text-[1.02rem] font-semibold leading-snug text-ivory">
+                    <h3 className="mt-2 text-balance font-display text-[1.02rem] font-semibold leading-snug text-ink">
                       {story.title}
                     </h3>
-                    <p className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1 border-t border-rose/15 pt-2.5 text-[0.68rem] text-ivory/65">
+                    <p className="mt-2.5 flex flex-wrap items-center gap-x-2 gap-y-1 border-t border-rose/15 pt-2.5 text-[0.68rem] text-ink/65">
                       <span>{story.date}</span>
                       <span aria-hidden>·</span>
                       <span>{story.read} read</span>
@@ -116,10 +116,10 @@ export default function StorySlider() {
                     <p className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
                       Photo archive
                     </p>
-                    <h3 className="mt-2 font-display text-[1.02rem] font-semibold leading-snug text-ivory">
+                    <h3 className="mt-2 font-display text-[1.02rem] font-semibold leading-snug text-ink">
                       Photograph {String(index).padStart(2, "0")}
                     </h3>
-                    <p className="mt-2.5 border-t border-rose/15 pt-2.5 text-[0.68rem] text-ivory/65">
+                    <p className="mt-2.5 border-t border-rose/15 pt-2.5 text-[0.68rem] text-ink/65">
                       Caption and consent pending
                     </p>
                   </SlideCard>
@@ -135,7 +135,7 @@ export default function StorySlider() {
           onClick={() => swiperRef.current?.slidePrev()}
           disabled={atStart}
           aria-label="Previous stories"
-          className="absolute left-0 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full border border-rose/30 bg-plum-deep/85 text-ivory shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all duration-300 hover:border-rose/70 hover:bg-plum focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-rose disabled:cursor-not-allowed disabled:opacity-25 disabled:hover:border-rose/30 disabled:hover:bg-plum-deep/85 motion-reduce:transition-none sm:h-11 sm:w-11"
+          className="absolute left-0 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full border border-rose/30 bg-plum-deep/85 text-ink shadow-[0_10px_30px_-10px_rgba(190,24,93,0.22)] backdrop-blur-md transition-all duration-300 hover:border-rose/70 hover:bg-plum focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-rose disabled:cursor-not-allowed disabled:opacity-25 disabled:hover:border-rose/30 disabled:hover:bg-plum-deep/85 motion-reduce:transition-none sm:h-11 sm:w-11"
         >
           <Chevron dir="left" />
         </button>
@@ -144,7 +144,7 @@ export default function StorySlider() {
           onClick={() => swiperRef.current?.slideNext()}
           disabled={atEnd}
           aria-label="Next stories"
-          className="absolute right-0 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full border border-rose/30 bg-plum-deep/85 text-ivory shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all duration-300 hover:border-rose/70 hover:bg-plum focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-rose disabled:cursor-not-allowed disabled:opacity-25 disabled:hover:border-rose/30 disabled:hover:bg-plum-deep/85 motion-reduce:transition-none sm:h-11 sm:w-11"
+          className="absolute right-0 top-1/2 z-20 grid h-9 w-9 -translate-y-1/2 place-items-center rounded-full border border-rose/30 bg-plum-deep/85 text-ink shadow-[0_10px_30px_-10px_rgba(190,24,93,0.22)] backdrop-blur-md transition-all duration-300 hover:border-rose/70 hover:bg-plum focus-visible:outline focus-visible:outline-[3px] focus-visible:outline-offset-2 focus-visible:outline-rose disabled:cursor-not-allowed disabled:opacity-25 disabled:hover:border-rose/30 disabled:hover:bg-plum-deep/85 motion-reduce:transition-none sm:h-11 sm:w-11"
         >
           <Chevron dir="right" />
         </button>
@@ -166,9 +166,9 @@ export default function StorySlider() {
             style={{ transform: "scaleX(0.02)" }}
           />
         </div>
-        <p className="shrink-0 text-[0.72rem] font-medium tabular-nums text-ivory/55">
+        <p className="shrink-0 text-[0.72rem] font-medium tabular-nums text-ink/55">
           {String(current).padStart(2, "0")}
-          <span className="mx-1 text-ivory/30">/</span>
+          <span className="mx-1 text-ink/30">/</span>
           {String(totalSlides).padStart(2, "0")}
         </p>
       </div>
@@ -199,10 +199,10 @@ function SlideCard({
         />
         <span
           aria-hidden
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-plum-deep via-plum-deep/35 to-plum-deep/5"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(30,8,26,0.85)] via-[rgba(30,8,26,0.3)] to-transparent"
         />
-        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">{children}</div>
-        <span className="absolute right-4 top-4 rounded-full bg-plum-deep/70 px-2.5 py-1 text-[0.62rem] font-semibold tabular-nums text-ivory/80 backdrop-blur">
+        <div className="on-photo absolute inset-x-0 bottom-0 p-4 sm:p-5">{children}</div>
+        <span className="absolute right-4 top-4 rounded-full bg-black/45 px-2.5 py-1 text-[0.62rem] font-semibold tabular-nums text-white backdrop-blur">
           {String(index).padStart(2, "0")}
         </span>
       </div>

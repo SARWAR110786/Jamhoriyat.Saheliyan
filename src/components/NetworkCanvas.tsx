@@ -71,7 +71,7 @@ export default function NetworkCanvas({ className = "" }: { className?: string }
           const dist = Math.hypot(dx, dy);
           if (dist > linkDist) continue;
           const alpha = (1 - dist / linkDist) * 0.3;
-          ctx.strokeStyle = `rgba(180, 79, 209, ${alpha})`;
+          ctx.strokeStyle = `rgba(236, 72, 153, ${alpha * 0.7})`;
           ctx.lineWidth = 0.6;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
@@ -88,13 +88,13 @@ export default function NetworkCanvas({ className = "" }: { className?: string }
           near > 0.15
             ? `rgba(236, 72, 153, ${0.55 + near * 0.4})`
             : n.hue > 0.6
-              ? "rgba(255, 209, 232, 0.62)"
-              : "rgba(180, 79, 209, 0.72)";
+              ? "rgba(244, 114, 182, 0.55)"
+              : "rgba(219, 39, 119, 0.5)";
 
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r + near * 1.6, 0, Math.PI * 2);
         ctx.fillStyle = colour;
-        ctx.shadowColor = near > 0.15 ? "rgba(236,72,153,0.9)" : "rgba(180,79,209,0.8)";
+        ctx.shadowColor = near > 0.15 ? "rgba(236,72,153,0.5)" : "rgba(236,72,153,0.4)";
         ctx.shadowBlur = 8 + near * 12;
         ctx.fill();
         ctx.shadowBlur = 0;

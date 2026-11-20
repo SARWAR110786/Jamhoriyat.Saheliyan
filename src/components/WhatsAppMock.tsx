@@ -21,7 +21,7 @@ export default function WhatsAppMock({ className = "" }: { className?: string })
     <div className={className}>
       <div className="relative mx-auto w-full max-w-[19rem]">
         {/* phone */}
-        <div className="relative overflow-hidden rounded-[2.2rem] border border-rose/25 bg-plum-deep shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)]">
+        <div className="relative overflow-hidden rounded-[2.2rem] border border-rose/25 bg-plum-deep shadow-[0_40px_80px_-40px_rgba(190,24,93,0.22)]">
           <div className="flex items-center gap-2.5 border-b border-white/10 bg-[#1f2c34] px-4 py-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-orchid to-pink text-[0.6rem] font-bold text-white">
               JS
@@ -78,7 +78,7 @@ export default function WhatsAppMock({ className = "" }: { className?: string })
           href="https://wa.me/923063804401"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-rose/25 bg-plum/40 px-4 py-2 text-[0.78rem] font-semibold text-ivory transition-colors hover:border-rose/50 hover:text-white"
+          className="inline-flex items-center gap-2 rounded-full border border-rose/25 bg-plum/40 px-4 py-2 text-[0.78rem] font-semibold text-ink transition-colors hover:border-rose/50 hover:text-white"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inline-flex h-full w-full animate-pulse-ring rounded-full bg-emerald-400" />
@@ -88,7 +88,7 @@ export default function WhatsAppMock({ className = "" }: { className?: string })
         </a>
       </div>
 
-      <p className="mt-3 text-center text-[0.68rem] leading-relaxed text-ivory/60">
+      <p className="mt-3 text-center text-[0.68rem] leading-relaxed text-ink/60">
         Sample reply only. Illustrative interface — not real data, and not a screenshot of a live
         system.
       </p>

@@ -21,14 +21,14 @@ export default function ContactPage() {
         </div>
         <div
           aria-hidden
-          className="pointer-events-none absolute -left-24 top-20 h-[24rem] w-[24rem] rounded-full bg-violet/20 blur-[130px]"
+          className="pointer-events-none absolute -left-24 top-20 h-[24rem] w-[24rem] rounded-full bg-pink/10 blur-[130px]"
         />
         <div className="shell relative z-10">
           <p className="eyebrow">Contact</p>
-          <h1 className="mt-5 max-w-3xl text-balance text-[clamp(2.2rem,5.4vw,3.8rem)] font-bold leading-[1.02] text-ivory">
+          <h1 className="mt-5 max-w-3xl text-balance text-[clamp(2.2rem,5.4vw,3.8rem)] font-bold leading-[1.02] text-ink">
             Get help with a service, or talk to the team.
           </h1>
-          <p className="mt-6 max-w-2xl text-pretty text-[1.06rem] leading-relaxed text-ivory/65">
+          <p className="mt-6 max-w-2xl text-pretty text-[1.06rem] leading-relaxed text-ink/65">
             If you need information from a government office, the fastest way is WhatsApp — it is
             free and live today. For partnership, media or research, use the form below.
           </p>
@@ -42,17 +42,17 @@ export default function ContactPage() {
             <div className="overflow-hidden rounded-[1.75rem] border border-emerald-400/25 bg-gradient-to-br from-emerald-400/[0.10] via-plum-soft/45 to-plum-soft/25 p-6 sm:p-9">
               <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
                 <div>
-                  <p className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1.5 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-emerald-200">
+                  <p className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1.5 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-emerald-800">
                     <span className="relative flex h-2 w-2">
                       <span className="absolute inline-flex h-full w-full animate-pulse-ring rounded-full bg-emerald-400" />
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                     </span>
                     Live today
                   </p>
-                  <h2 className="mt-4 font-display text-[clamp(1.6rem,3.6vw,2.4rem)] font-bold leading-[1.1] text-ivory">
+                  <h2 className="mt-4 font-display text-[clamp(1.6rem,3.6vw,2.4rem)] font-bold leading-[1.1] text-ink">
                     I need help with a service
                   </h2>
-                  <p className="mt-3 max-w-xl text-[1rem] leading-relaxed text-ivory/72">
+                  <p className="mt-3 max-w-xl text-[1rem] leading-relaxed text-ink/72">
                     Message us on WhatsApp. It is free, there is no app to install and no account to
                     create. We reply in English, Urdu and Sindhi.
                   </p>
@@ -64,7 +64,7 @@ export default function ContactPage() {
                     ].map((t) => (
                       <li
                         key={t}
-                        className="flex gap-3 text-[0.9rem] leading-relaxed text-ivory/70"
+                        className="flex gap-3 text-[0.9rem] leading-relaxed text-ink/70"
                       >
                         <svg
                           width="16"
@@ -72,7 +72,7 @@ export default function ContactPage() {
                           viewBox="0 0 24 24"
                           fill="none"
                           aria-hidden="true"
-                          className="mt-1 shrink-0 text-emerald-300"
+                          className="mt-1 shrink-0 text-emerald-700"
                         >
                           <path
                             d="M5 12.5 10 17.5 19 7"
@@ -92,7 +92,7 @@ export default function ContactPage() {
                   <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
                     Official service number
                   </p>
-                  <p className="mt-2 font-display text-[1.45rem] font-bold text-ivory">
+                  <p className="mt-2 font-display text-[1.45rem] font-bold text-ink">
                     {site.whatsappNumber}
                   </p>
                   <a
@@ -104,10 +104,10 @@ export default function ContactPage() {
                     <WhatsAppGlyph />
                     Get help on WhatsApp
                   </a>
-                  <p className="mt-3 text-center text-[0.72rem] leading-relaxed text-ivory/60">
+                  <p className="mt-3 text-center text-[0.72rem] leading-relaxed text-ink/60">
                     Opens WhatsApp in a new tab. Works on any phone with WhatsApp.
                   </p>
-                  <p className="mt-4 border-t border-rose/12 pt-3 text-center text-[0.72rem] leading-relaxed text-ivory/60">
+                  <p className="mt-4 border-t border-rose/12 pt-3 text-center text-[0.72rem] leading-relaxed text-ink/60">
                     Prefer email? Write to{" "}
                     <a
                       href={`mailto:${site.email}`}
@@ -120,19 +120,19 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <p className="mt-6 border-t border-rose/12 pt-4 text-[0.76rem] leading-relaxed text-ivory/60">
+              <p className="mt-6 border-t border-rose/12 pt-4 text-[0.76rem] leading-relaxed text-ink/60">
                 Your safety comes first. You can ask us to delete your messages at any time, and
                 sensitive questions are handed to a person — not left to a machine.{" "}
                 <Link
                   href="/privacy"
-                  className="text-ivory/80 underline underline-offset-2 hover:text-white"
+                  className="text-ink/80 underline underline-offset-2 hover:text-pink-deep"
                 >
                   Privacy
                 </Link>{" "}
                 ·{" "}
                 <Link
                   href="/safeguarding"
-                  className="text-ivory/80 underline underline-offset-2 hover:text-white"
+                  className="text-ink/80 underline underline-offset-2 hover:text-pink-deep"
                 >
                   Safeguarding
                 </Link>
@@ -156,8 +156,8 @@ export default function ContactPage() {
             {/* Form */}
             <Reveal>
               <div className="rounded-2xl border border-rose/15 bg-plum-soft/40 p-6 sm:p-8">
-                <h3 className="font-display text-xl font-semibold text-ivory">Send us a message</h3>
-                <p className="mt-1.5 text-[0.85rem] text-ivory/62">
+                <h3 className="font-display text-xl font-semibold text-ink">Send us a message</h3>
+                <p className="mt-1.5 text-[0.85rem] text-ink/62">
                   Fields marked * are required.
                 </p>
                 <div className="mt-6">
@@ -184,7 +184,7 @@ export default function ContactPage() {
                     <Channel label="Office hours" value={site.officeHours} />
                   </ul>
                   <div className="mt-5 border-t border-rose/12 pt-4">
-                    <p className="text-[0.78rem] leading-relaxed text-ivory/60">
+                    <p className="text-[0.78rem] leading-relaxed text-ink/60">
                       Need help with a service? Use the WhatsApp card above — it is the fastest
                       route.
                     </p>
@@ -198,24 +198,24 @@ export default function ContactPage() {
                   <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-pink">
                     Safeguarding and privacy
                   </p>
-                  <p className="mt-3 text-[0.88rem] leading-relaxed text-ivory/65">
+                  <p className="mt-3 text-[0.88rem] leading-relaxed text-ink/65">
                     We collect only what is needed to respond. We do not sell or share your details.
                     Women using our service can ask us to delete their data at any time.
                   </p>
-                  <p className="mt-3 text-[0.88rem] leading-relaxed text-ivory/65">
+                  <p className="mt-3 text-[0.88rem] leading-relaxed text-ink/65">
                     If your message concerns the safety of a person, say so in the first line and it
                     will be escalated to a named safeguarding lead.
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <Link
                       href="/privacy"
-                      className="rounded-full border border-rose/25 px-3 py-1.5 text-[0.72rem] text-ivory/70 transition-colors hover:border-rose/50 hover:text-ivory"
+                      className="rounded-full border border-rose/25 px-3 py-1.5 text-[0.72rem] text-ink/70 transition-colors hover:border-rose/50 hover:text-ink"
                     >
                       Privacy and data protection
                     </Link>
                     <Link
                       href="/safeguarding"
-                      className="rounded-full border border-rose/25 px-3 py-1.5 text-[0.72rem] text-ivory/70 transition-colors hover:border-rose/50 hover:text-ivory"
+                      className="rounded-full border border-rose/25 px-3 py-1.5 text-[0.72rem] text-ink/70 transition-colors hover:border-rose/50 hover:text-ink"
                     >
                       Safeguarding
                     </Link>
@@ -281,12 +281,12 @@ function Channel({
       {href ? (
         <a
           href={href}
-          className="link-underline break-all text-right text-[0.88rem] text-ivory/75 hover:text-ivory"
+          className="link-underline break-all text-right text-[0.88rem] text-ink/75 hover:text-ink"
         >
           {value}
         </a>
       ) : (
-        <span className="text-right text-[0.88rem] text-ivory/60">{value}</span>
+        <span className="text-right text-[0.88rem] text-ink/60">{value}</span>
       )}
     </li>
   );

@@ -59,11 +59,11 @@ export default function ClimateMap() {
         >
           <defs>
             <radialGradient id="mapGlow" cx="50%" cy="50%" r="60%">
-              <stop offset="0%" stopColor="#6B2FB3" stopOpacity="0.35" />
-              <stop offset="100%" stopColor="#2A0F3D" stopOpacity="0" />
+              <stop offset="0%" stopColor="#F9A8D4" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
             </radialGradient>
             <pattern id="grid" width="6" height="6" patternUnits="userSpaceOnUse">
-              <path d="M6 0H0V6" fill="none" stroke="#FFD1E8" strokeOpacity="0.05" strokeWidth="0.3" />
+              <path d="M6 0H0V6" fill="none" stroke="#BE185D" strokeOpacity="0.05" strokeWidth="0.3" />
             </pattern>
           </defs>
 
@@ -73,9 +73,9 @@ export default function ClimateMap() {
           {/* stylised landmass */}
           <path
             d="M14 26 C22 16 38 12 52 15 C68 18 80 14 86 24 C91 33 88 45 84 54 C80 64 84 72 74 78 C63 84 48 82 38 78 C27 74 16 70 13 58 C10 47 8 34 14 26 Z"
-            fill="#6B2FB3"
+            fill="#F9A8D4"
             fillOpacity="0.10"
-            stroke="#B44FD1"
+            stroke="#DB2777"
             strokeOpacity="0.28"
             strokeWidth="0.45"
           />
@@ -83,7 +83,7 @@ export default function ClimateMap() {
           <path
             d="M30 12 C34 26 27 38 33 50 C39 62 32 72 36 84"
             fill="none"
-            stroke="#B44FD1"
+            stroke="#DB2777"
             strokeOpacity="0.35"
             strokeWidth="0.5"
             strokeDasharray="2 1.6"
@@ -113,21 +113,21 @@ export default function ClimateMap() {
 
           {/* office */}
           <g>
-            <circle cx={office.x} cy={office.y} r="3.4" fill="#FFD1E8" fillOpacity="0.14" />
+            <circle cx={office.x} cy={office.y} r="3.4" fill="#BE185D" fillOpacity="0.14" />
             <rect
               x={office.x - 1.6}
               y={office.y - 1.6}
               width="3.2"
               height="3.2"
               transform={`rotate(45 ${office.x} ${office.y})`}
-              fill="#FFD1E8"
+              fill="#BE185D"
             />
             <text
               x={office.x}
               y={office.y + 6.4}
               textAnchor="middle"
               fontSize="2.5"
-              fill="#FFD1E8"
+              fill="#BE185D"
               fillOpacity="0.75"
               fontFamily="var(--font-public)"
             >
@@ -175,8 +175,8 @@ export default function ClimateMap() {
                   cx={c.x}
                   cy={c.y}
                   r={on ? 2.1 : 1.5}
-                  fill={on ? "#EC4899" : "#B44FD1"}
-                  stroke={on ? "#FFD1E8" : "transparent"}
+                  fill={on ? "#EC4899" : "#DB2777"}
+                  stroke={on ? "#BE185D" : "transparent"}
                   strokeWidth="0.4"
                 />
                 <text
@@ -184,7 +184,7 @@ export default function ClimateMap() {
                   y={c.y - 3.4}
                   textAnchor="middle"
                   fontSize="2.3"
-                  fill="#FFD1E8"
+                  fill="#BE185D"
                   fillOpacity={on ? 0.95 : 0.55}
                   fontFamily="var(--font-public)"
                   fontWeight={on ? 600 : 400}
@@ -205,10 +205,10 @@ export default function ClimateMap() {
         <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
           Selected community
         </p>
-        <h3 className="mt-2 font-display text-xl font-semibold text-ivory">
+        <h3 className="mt-2 font-display text-xl font-semibold text-ink">
           {current?.name ?? "Choose a point"}
         </h3>
-        <p className="mt-3 text-[0.92rem] leading-relaxed text-ivory/65">
+        <p className="mt-3 text-[0.92rem] leading-relaxed text-ink/65">
           {current?.issue ??
             "Tap a community point to see the local issue and the route a question would take to the responsible office."}
         </p>
@@ -233,14 +233,14 @@ export default function ClimateMap() {
                   >
                     <span className="absolute inset-[3px] rounded-full bg-pink/80" />
                   </span>
-                  <span className="text-[0.88rem] leading-relaxed text-ivory/70">{step}</span>
+                  <span className="text-[0.88rem] leading-relaxed text-ink/70">{step}</span>
                 </li>
               ))}
             </ol>
           </div>
         )}
 
-        <p className="mt-6 border-t border-rose/12 pt-4 text-[0.7rem] leading-relaxed text-ivory/60">
+        <p className="mt-6 border-t border-rose/12 pt-4 text-[0.7rem] leading-relaxed text-ink/60">
           Positions are illustrative. This map will show verified community data only. No community
           data is displayed until it has been collected with consent.
         </p>

@@ -60,7 +60,7 @@ export default function AboutPage() {
             <Reveal>
               <div className="card-light h-full p-8">
                 <p className="eyebrow text-violet">Vision</p>
-                <p className="mt-5 font-display text-[1.35rem] font-semibold leading-snug text-plum">
+                <p className="mt-5 font-display text-[1.35rem] font-semibold leading-snug text-ink">
                   A future where rural women can get the information they need, question
                   institutions with confidence and influence the decisions that shape their
                   communities.
@@ -70,7 +70,7 @@ export default function AboutPage() {
             <Reveal delay={0.08}>
               <div className="card-light h-full p-8">
                 <p className="eyebrow text-violet">Mission</p>
-                <p className="mt-5 font-display text-[1.35rem] font-semibold leading-snug text-plum">
+                <p className="mt-5 font-display text-[1.35rem] font-semibold leading-snug text-ink">
                   To develop and strengthen community-rooted, accessible technology that expands
                   women&apos;s access to information, supports civic participation and advances
                   accountable, gender-responsive governance.
@@ -112,7 +112,7 @@ export default function AboutPage() {
                 />
               </Reveal>
               <Reveal delay={0.12}>
-                <p className="mt-6 text-pretty leading-relaxed text-ivory/60">
+                <p className="mt-6 text-pretty leading-relaxed text-ink/60">
                   Two hundred women took part in shaping it: what it should answer, which words it
                   should use, and where it should stop and hand over to a person. The result is a
                   WhatsApp-based service that sits inside a wider network of women, not apart from
@@ -128,7 +128,7 @@ export default function AboutPage() {
                   ].map(([n, l]) => (
                     <div key={l} className="rounded-xl border border-rose/12 bg-plum-soft/40 p-4">
                       <p className="font-display text-2xl font-bold text-rose">{n}</p>
-                      <p className="mt-1 text-[0.74rem] leading-snug text-ivory/62">{l}</p>
+                      <p className="mt-1 text-[0.74rem] leading-snug text-ink/62">{l}</p>
                     </div>
                   ))}
                 </div>
@@ -149,14 +149,14 @@ export default function AboutPage() {
               intro="These are not slogans. Each one shows up in a decision we make about the tool, the data we keep and the way we work with communities."
             />
           </Reveal>
-          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-plum/10 bg-plum/10 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((v, i) => (
               <div key={v.t} className="group bg-ivory-warm p-7 transition-colors hover:bg-white">
                 <span className="font-display text-[0.7rem] font-bold tracking-[0.2em] text-violet/75">
                   0{i + 1}
                 </span>
-                <h3 className="mt-4 font-display text-[1.1rem] font-semibold text-plum">{v.t}</h3>
-                <p className="mt-2 text-[0.9rem] leading-relaxed text-plum/65">{v.d}</p>
+                <h3 className="mt-4 font-display text-[1.1rem] font-semibold text-ink">{v.t}</h3>
+                <p className="mt-2 text-[0.9rem] leading-relaxed text-ink/65">{v.d}</p>
               </div>
             ))}
           </div>
@@ -167,7 +167,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-plum-deep py-20 md:py-28">
         <div
           aria-hidden
-          className="pointer-events-none absolute right-0 top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full bg-violet/18 blur-[140px]"
+          className="pointer-events-none absolute right-0 top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full bg-pink/10 blur-[140px]"
         />
         <div className="shell relative z-10">
           <Reveal>
@@ -207,14 +207,14 @@ export default function AboutPage() {
                   <p className="mt-4 font-display text-lg font-bold uppercase tracking-[0.12em] text-rose">
                     {s.k}
                   </p>
-                  <p className="mt-3 text-[0.98rem] leading-relaxed text-ivory/72">{s.t}</p>
+                  <p className="mt-3 text-[0.98rem] leading-relaxed text-ink/72">{s.t}</p>
                 </div>
               </Reveal>
             ))}
           </div>
 
           <Reveal delay={0.3}>
-            <p className="mx-auto mt-10 max-w-2xl text-center text-[0.82rem] leading-relaxed text-ivory/60">
+            <p className="mx-auto mt-10 max-w-2xl text-center text-[0.82rem] leading-relaxed text-ink/60">
               Technology alone does not remove structural inequality. It can, however, change who
               holds information — and information is where participation begins.
             </p>
@@ -243,7 +243,7 @@ export default function AboutPage() {
                     "A civic network of 157 women who act on questions together.",
                     "Three university partnerships for research and evaluation.",
                   ].map((t) => (
-                    <li key={t} className="flex gap-3 text-[0.95rem] leading-relaxed text-plum/70">
+                    <li key={t} className="flex gap-3 text-[0.95rem] leading-relaxed text-ink/70">
                       <span
                         aria-hidden
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-pink"

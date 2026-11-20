@@ -53,7 +53,7 @@ export default function SiteHeader() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={`link-underline text-[0.88rem] font-medium transition-colors ${
-                  active ? "text-rose" : "text-ivory/75 hover:text-ivory"
+                  active ? "text-rose" : "text-ink/75 hover:text-ink"
                 }`}
               >
                 {item.label}
@@ -74,7 +74,7 @@ export default function SiteHeader() {
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-rose/25 text-ivory transition-colors hover:border-rose/60 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-rose/25 text-ink transition-colors hover:border-rose/60 lg:hidden"
           >
             <span className="relative block h-3.5 w-5">
               <span
@@ -108,7 +108,7 @@ export default function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex items-baseline justify-between border-b border-rose/10 py-4 font-display text-2xl font-semibold text-ivory"
+              className="flex items-baseline justify-between border-b border-rose/10 py-4 font-display text-2xl font-semibold text-ink"
             >
               {item.label}
               <span className="font-sans text-[0.65rem] tracking-[0.2em] text-orchid-light">
@@ -131,7 +131,7 @@ export default function SiteHeader() {
           Work With Us
           <Arrow />
         </Link>
-        <p className="mt-6 text-sm leading-relaxed text-ivory/65">
+        <p className="mt-6 text-sm leading-relaxed text-ink/65">
           Free to use. English, Urdu and Sindhi. No app to install.
         </p>
       </div>

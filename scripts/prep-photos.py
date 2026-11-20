@@ -23,7 +23,7 @@ import json
 import re
 from pathlib import Path
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 try:
     import pillow_heif
@@ -69,6 +69,11 @@ def main() -> None:
             with Image.open(f) as im:
                 im = ImageOps.exif_transpose(im).convert("RGB")
                 w, h = im.size
+                # WhatsApp re-compresses photos, which softens edges. A gentle
+                # unsharp mask restores crispness without visible halos. iPhone
+                # originals (large files) are already sharp and are left alone.
+                if max(w, h) <= 2000:
+                    im = im.filter(ImageFilter.UnsharpMask(radius=1.2, percent=70, threshold=3))
                 pid = slugify(f.name, i)
 
                 big = im.copy()

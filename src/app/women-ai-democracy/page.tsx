@@ -57,7 +57,7 @@ export default function WomenAIDemocracyPage() {
             </Reveal>
             <div>
               <Reveal delay={0.08}>
-                <p className="text-pretty text-[1.08rem] leading-[1.75] text-plum/75">
+                <p className="text-pretty text-[1.08rem] leading-[1.75] text-ink/75">
                   A woman who does not know a budget exists cannot question it. A woman who does not
                   know a school has a repair allocation cannot ask why the roof still leaks. The
                   barrier is rarely interest — it is access, language and the unwritten rule that
@@ -65,7 +65,7 @@ export default function WomenAIDemocracyPage() {
                 </p>
               </Reveal>
               <Reveal delay={0.16}>
-                <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-plum/10 bg-plum/10 sm:grid-cols-2">
+                <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 sm:grid-cols-2">
                   {[
                     ["Data", "A connection, a data bundle, and a phone that is hers to use."],
                     ["Literacy", "Text-first interfaces assume reading fluency in a second language."],
@@ -76,13 +76,13 @@ export default function WomenAIDemocracyPage() {
                       <p className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-violet">
                         {k}
                       </p>
-                      <p className="mt-2 text-[0.88rem] leading-relaxed text-plum/65">{v}</p>
+                      <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/65">{v}</p>
                     </div>
                   ))}
                 </div>
               </Reveal>
               <Reveal delay={0.22}>
-                <p className="mt-8 border-l-2 border-pink pl-5 font-display text-[1.15rem] font-medium leading-snug text-plum">
+                <p className="mt-8 border-l-2 border-pink pl-5 font-display text-[1.15rem] font-medium leading-snug text-ink">
                   Jamhooriyat Saheliyan treats AI as a way to lower those barriers — never as a
                   substitute for women&apos;s own judgement, or for institutions&apos; duty to
                   answer.
@@ -97,7 +97,7 @@ export default function WomenAIDemocracyPage() {
       <section className="relative overflow-hidden bg-plum py-20 md:py-28">
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-20 top-0 h-[28rem] w-[28rem] rounded-full bg-orchid/15 blur-[140px]"
+          className="pointer-events-none absolute -right-20 top-0 h-[28rem] w-[28rem] rounded-full bg-pink/10 blur-[140px]"
         />
         <div className="shell relative z-10">
           <Reveal>
@@ -115,10 +115,10 @@ export default function WomenAIDemocracyPage() {
                   <span className="font-display text-[2.2rem] font-bold leading-none text-rose/15 transition-colors group-hover:text-rose/30">
                     0{i + 1}
                   </span>
-                  <h3 className="mt-4 font-display text-[1.02rem] font-semibold text-ivory">
+                  <h3 className="mt-4 font-display text-[1.02rem] font-semibold text-ink">
                     {c.t}
                   </h3>
-                  <p className="mt-2 text-[0.86rem] leading-relaxed text-ivory/65">{c.d}</p>
+                  <p className="mt-2 text-[0.86rem] leading-relaxed text-ink/65">{c.d}</p>
                 </div>
               </Reveal>
             ))}
@@ -176,8 +176,8 @@ export default function WomenAIDemocracyPage() {
                         className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orchid"
                       />
                       <div>
-                        <p className="font-display text-[0.98rem] font-semibold text-ivory">{t}</p>
-                        <p className="mt-1 text-[0.88rem] leading-relaxed text-ivory/65">{d}</p>
+                        <p className="font-display text-[0.98rem] font-semibold text-ink">{t}</p>
+                        <p className="mt-1 text-[0.88rem] leading-relaxed text-ink/65">{d}</p>
                       </div>
                     </li>
                   ))}
@@ -225,8 +225,8 @@ export default function WomenAIDemocracyPage() {
             ].map((c, i) => (
               <Reveal key={c.t} delay={i * 0.08}>
                 <div className="card-light h-full p-7">
-                  <h3 className="font-display text-[1.05rem] font-semibold text-plum">{c.t}</h3>
-                  <p className="mt-2.5 text-[0.9rem] leading-relaxed text-plum/62">{c.d}</p>
+                  <h3 className="font-display text-[1.05rem] font-semibold text-ink">{c.t}</h3>
+                  <p className="mt-2.5 text-[0.9rem] leading-relaxed text-ink/62">{c.d}</p>
                 </div>
               </Reveal>
             ))}
