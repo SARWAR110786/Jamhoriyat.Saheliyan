@@ -1,14 +1,9 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import PageSchema from "@/components/PageSchema";
-import { pageMetadata } from "@/lib/seo";
-import PageHero from "@/components/PageHero";
-import Photo from "@/components/Photo";
 import Reveal from "@/components/Reveal";
-import SectionHeading from "@/components/SectionHeading";
 import Counter from "@/components/Counter";
-import ClimateMap from "@/components/ClimateMap";
-import CTABand from "@/components/CTABand";
+import { EndBand, Pic, PhotoHero, Title } from "@/components/PageBits";
+import { pageMetadata } from "@/lib/seo";
 import { impactFigures, site } from "@/content/site";
 
 export const metadata: Metadata = pageMetadata("/impact");
@@ -17,255 +12,124 @@ export default function ImpactPage() {
   return (
     <>
       <PageSchema path="/impact" />
-      <PageHero
+
+      <PhotoHero
+        photo="p037-whatsapp-image-2026-09-15-at-11-03-13-pm"
+        alt="A large group of women and children gathered together for a Jamhooriyat Saheliyan session."
         eyebrow="Our impact"
-        title="Numbers a donor can check, and the story behind each one."
-        intro="Every figure below is reported by the initiative, carries a reporting period, and comes with a short note on how it was counted. Where we do not yet have verified data, we say so."
+        title={
+          <>
+            Small questions.
+            <br />
+            Real change.
+          </>
+        }
+        intro="When women know they can ask, offices start to answer. Here is what has happened so far."
+        focus="50% 40%"
       />
 
-      {/* Counters */}
-      <section className="relative overflow-hidden bg-plum-deep pb-20 pt-14 md:pb-28 md:pt-20">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-pink/10 blur-[140px]"
-        />
-        <div className="shell relative z-10">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+      {/* 1. Numbers */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="shell">
+          <Title eyebrow="In numbers" title="What we have done so far." />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {impactFigures.map((f, i) => (
               <Reveal key={f.label} delay={i * 0.06}>
-                <div className="flex h-full flex-col rounded-2xl border border-rose/12 bg-plum-soft/40 p-6 sm:p-7">
-                  <p className="font-display text-[clamp(2.4rem,5vw,3.4rem)] font-bold leading-none tracking-[-0.02em] tabular-nums text-rose">
+                <div className="h-full rounded-2xl border border-pink/15 bg-[#fff8fb] p-6 text-center">
+                  <p className="font-serif text-[clamp(2.8rem,5vw,3.6rem)] font-semibold leading-none text-pink-deep">
                     <Counter to={f.value} />
                   </p>
-                  <p className="mt-4 text-[0.74rem] font-semibold uppercase tracking-[0.14em] text-orchid-light">
-                    {f.label}
-                  </p>
-                  <p className="mt-2.5 text-[0.82rem] leading-relaxed text-ink/62">{f.detail}</p>
+                  <p className="mt-3 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-ink/80">{f.label}</p>
+                  <p className="mt-2 text-[0.86rem] leading-relaxed text-ink/60">{f.detail}</p>
                 </div>
               </Reveal>
             ))}
           </div>
-
-          <Reveal delay={0.2}>
-            <div className="mt-8 grid gap-5 rounded-xl border border-rose/12 bg-plum/40 p-5 sm:grid-cols-2 sm:p-6">
-              <div>
-                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
-                  Reporting period
-                </p>
-                <p className="mt-1.5 text-[0.88rem] text-ink/60">
-                  {site.reportingPeriod ?? (
-                    <span className="rounded bg-rose/10 px-1.5 py-0.5 font-medium text-rose ring-1 ring-inset ring-rose/25">
-                      To be confirmed by the team
-                    </span>
-                  )}
-                </p>
-              </div>
-              <div>
-                <p className="text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
-                  Method
-                </p>
-                <p className="mt-1.5 text-[0.88rem] text-ink/60">
-                  {site.methodologyNote ?? (
-                    <span className="rounded bg-rose/10 px-1.5 py-0.5 font-medium text-rose ring-1 ring-inset ring-rose/25">
-                      To be confirmed — how participation and reports were counted
-                    </span>
-                  )}
-                </p>
-              </div>
-            </div>
-          </Reveal>
+          <p className="mt-6 text-center text-[0.82rem] text-ink/55">
+            Figures reported by the initiative. We are happy to share how each one was counted.
+          </p>
         </div>
       </section>
 
-      {/* Table */}
+      {/* 2. Stories of change */}
       <section className="on-light py-20 md:py-28">
         <div className="shell">
-          <Reveal>
-            <SectionHeading
-              eyebrow="What each figure means"
-              tone="light"
-              title="Precise definitions, not headline rounding."
-              intro="Donors ask what a number actually counts. This is our answer, in the same words we would use in a report."
-            />
-          </Reveal>
-
-          <Reveal delay={0.1}>
-            <div className="mt-10 overflow-x-auto rounded-2xl border border-ink/10 bg-white">
-              <table className="w-full min-w-[38rem] text-left">
-                <caption className="sr-only">Impact figures and their definitions</caption>
-                <thead>
-                  <tr className="border-b border-ink/10 bg-ink/4 text-[0.66rem] uppercase tracking-[0.14em] text-ink/65">
-                    <th scope="col" className="px-6 py-3.5 font-semibold">
-                      Figure
-                    </th>
-                    <th scope="col" className="px-6 py-3.5 font-semibold">
-                      What it means
-                    </th>
-                    <th scope="col" className="px-6 py-3.5 font-semibold">
-                      Source
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {impactFigures.map((f) => (
-                    <tr key={f.label} className="border-b border-ink/6 last:border-0">
-                      <td className="whitespace-nowrap px-6 py-4">
-                        <span className="font-display text-lg font-bold text-violet">
-                          {f.value}
-                        </span>
-                        <span className="ml-2 text-[0.82rem] text-ink/65">{f.label}</span>
-                      </td>
-                      <td className="px-6 py-4 text-[0.9rem] leading-relaxed text-ink/70">
-                        {f.detail}
-                      </td>
-                      <td className="px-6 py-4 text-[0.8rem] text-ink/65">
-                        Initiative-reported
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.16}>
-            <p className="mt-5 max-w-3xl text-[0.8rem] leading-relaxed text-ink/65">
-              Figures are not extrapolated beyond the period in which they were collected, and are
-              not combined across programmes. If a number changes after verification, the page is
-              updated and the change is noted.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Outcomes */}
-      <section className="bg-plum py-20 md:py-28">
-        <div className="shell">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Outcomes"
-              title="Two cases, described carefully."
-              intro="We say “contributed to” on purpose. Many people and processes shape an outcome, and we describe our part honestly."
-            />
-          </Reveal>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <Title eyebrow="Stories of change" title="What a question can do." />
+          <div className="mt-12 space-y-8">
             {[
               {
-                slot: "impactHospital" as const,
-                kicker: "Access to medicines",
-                title: "Medicines at the hospital",
-                body: "A women's information request contributed to access to hospital medicines. The request asked for the medicine stock record of the tehsil hospital.",
-                meta: "Place, month and consent note to be added.",
+                tag: "Hospital / Sehat",
+                t: "Women's questions helped bring medicines back.",
+                d: "Women asked for the medicine stock record of their tehsil hospital. Their request contributed to medicines being made available again.",
+                photo: "p063-whatsapp-image-2026-09-16-at-12-32-48-am-1",
+                alt: "Women seated in a circle on green mats during a meeting.",
               },
               {
-                slot: "impactSchool" as const,
-                kicker: "Accountability case",
-                title: "A teacher returns to school",
-                body: "An accountability case contributed to a teacher returning to school. The community documented the absence and raised it with the responsible office.",
-                meta: "Place, month and consent note to be added.",
+                tag: "School / Taleem",
+                t: "A teacher came back to the classroom.",
+                d: "The community recorded a teacher's long absence and raised it with the responsible office. This contributed to the teacher returning to the classroom.",
+                photo: "p068-whatsapp-image-2026-09-16-at-12-32-51-am-1",
+                alt: "A group of women holding printed sheets during a session.",
               },
             ].map((c, i) => (
-              <Reveal key={c.title} delay={i * 0.1}>
-                <article className="group h-full overflow-hidden rounded-2xl border border-rose/12 bg-plum-soft/30">
-                  <Photo
-                    slot={c.slot}
-                    aspect="16/10"
-                    sizes="(max-width: 768px) 100vw, 45vw"
-                    rounded="rounded-none"
-                  />
-                  <div className="p-6">
-                    <p className="text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-orchid-light">
-                      {c.kicker}
-                    </p>
-                    <h3 className="mt-2.5 font-display text-[1.35rem] font-semibold text-ink">
-                      {c.title}
-                    </h3>
-                    <p className="mt-3 text-[0.94rem] leading-relaxed text-ink/62">{c.body}</p>
-                    <p className="mt-4 flex items-center gap-2 text-[0.72rem] text-ink/60">
-                      <span className="h-1 w-1 rounded-full bg-rose/50" />
-                      {c.meta}
+              <Reveal key={c.t} delay={i * 0.08}>
+                <div className={`grid items-center gap-8 overflow-hidden rounded-[1.6rem] bg-white shadow-[0_24px_50px_-34px_rgba(190,24,93,0.5)] lg:grid-cols-2 ${i % 2 ? "lg:[&>*:first-child]:order-2" : ""}`}>
+                  <Pic photo={c.photo} alt={c.alt} aspect="16/11" rounded="rounded-none" />
+                  <div className="p-7 lg:p-10">
+                    <p className="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-pink-deep">{c.tag}</p>
+                    <h3 className="mt-3 font-serif text-[clamp(1.7rem,3vw,2.3rem)] font-semibold leading-tight tracking-normal text-ink">{c.t}</h3>
+                    <p className="mt-3 text-[1rem] leading-relaxed text-ink/70">{c.d}</p>
+                    <p className="mt-4 text-[0.78rem] text-ink/50">
+                      We say &ldquo;contributed to&rdquo; on purpose — many people helped make it happen.
                     </p>
                   </div>
-                </article>
+                </div>
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Climate map */}
-      <section className="on-ivory-warm py-20 md:py-28">
+      {/* 3. What we're learning */}
+      <section className="bg-[#9d174d] py-20 text-white md:py-28">
         <div className="shell">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Climate and accountability map"
-              tone="light"
-              title="Where a question goes."
-              intro="Tap a community point to see the local issue and the route a question would take to the responsible office. Until verified community data exists, this is labelled clearly as a concept."
-            />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="mt-10">
-              <ClimateMap />
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Learning */}
-      <section className="bg-plum-deep py-20 md:py-24">
-        <div className="shell">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
-            <Reveal>
-              <SectionHeading
-                eyebrow="Learning"
-                title="What has not worked."
-                intro="An impact page that only lists wins is a marketing page. These are the constraints we have found, and what we are changing."
-              />
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="space-y-3">
-                {[
-                  [
-                    "Institutional response time",
-                    "Replies can exceed the legal window. We are testing collective follow-up rather than individual chasing.",
-                  ],
-                  [
-                    "Shared devices",
-                    "Some women use a family phone. Private follow-up needs a different channel, and we are designing one.",
-                  ],
-                  [
-                    "Literacy assumptions",
-                    "Text-first prompts still exclude some users. Voice is being tested, not claimed.",
-                  ],
-                ].map(([t, d]) => (
-                  <div key={t} className="rounded-xl border border-rose/12 bg-plum-soft/30 p-5">
-                    <p className="font-display text-[0.96rem] font-semibold text-rose">{t}</p>
-                    <p className="mt-1.5 text-[0.88rem] leading-relaxed text-ink/65">{d}</p>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
+          <Title light eyebrow="What we are learning" title="Honest about the hard parts." />
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {[
+              ["⏳", "Some offices reply late", "So women now follow up together, which is harder to ignore than one person alone."],
+              ["📱", "Many women share a family phone", "We are designing a more private way to follow up."],
+              ["🎙️", "Typing is hard for some", "Voice notes are being tested, and we will add them once they work well."],
+            ].map(([icon, t, d], i) => (
+              <Reveal key={t} delay={i * 0.06}>
+                <div className="h-full rounded-2xl bg-white p-6 text-ink">
+                  <span className="text-3xl">{icon}</span>
+                  <h3 className="mt-3 font-display text-[1.1rem] font-semibold text-ink">{t}</h3>
+                  <p className="mt-2 text-[0.94rem] leading-relaxed text-ink/68">{d}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
-
-          <Reveal delay={0.18}>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="/stories" className="btn btn-ghost">
-                Read community stories
-              </Link>
-              <Link href="/partners#collaborate" className="btn btn-pink">
-                Fund the next phase
-              </Link>
-            </div>
-          </Reveal>
         </div>
       </section>
 
-      <CTABand
-        eyebrow="Due diligence"
-        title="Ask us for the underlying data."
-        body="We are happy to share the reporting sheets behind these figures, and to explain exactly how each one was counted."
+      {/* 4. Photos */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="shell">
+          <Title eyebrow="On the ground" title="Across three districts of Sindh." />
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 sm:gap-4">
+            <Pic photo="p008-img-0284" alt="Women and facilitators standing together beside the project banners." aspect="4/3" sizes="(max-width: 640px) 92vw, 46vw" />
+            <Pic photo="p047-whatsapp-image-2026-09-15-at-11-09-03-pm" alt="Women seated outdoors listening to a facilitator." aspect="4/3" sizes="(max-width: 640px) 92vw, 46vw" />
+            <Pic photo="p029-whatsapp-image-2026-09-15-at-10-32-30-pm" alt="Women gathered on a patterned rug during a session." aspect="4/3" sizes="(max-width: 640px) 92vw, 46vw" />
+            <Pic photo="p045-whatsapp-image-2026-09-15-at-11-04-45-pm" alt="A crowded session of women seated on the floor." aspect="4/3" sizes="(max-width: 640px) 92vw, 46vw" />
+          </div>
+        </div>
+      </section>
+
+      <EndBand
+        title="Help us reach more women."
+        body="Fund the next phase, research with us, or ask for the data behind these numbers."
+        primary={{ href: "/partners", label: "Partner with us" }}
+        secondary={{ href: site.whatsappLink ?? "/contact", label: "Try the chatbot" }}
       />
     </>
   );

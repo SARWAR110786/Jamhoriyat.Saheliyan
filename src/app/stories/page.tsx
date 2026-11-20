@@ -1,141 +1,119 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import PageSchema from "@/components/PageSchema";
-import { pageMetadata } from "@/lib/seo";
-import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
-import SectionHeading from "@/components/SectionHeading";
-import StoriesGrid from "@/components/StoriesGrid";
-import StorySlider from "@/components/StorySlider";
-import Photo from "@/components/Photo";
-import CTABand from "@/components/CTABand";
+import InstagramProfile from "@/components/InstagramProfile";
+import { EndBand, Pic, PhotoHero, Title } from "@/components/PageBits";
+import { pageMetadata } from "@/lib/seo";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = pageMetadata("/stories");
 
-const resources = [
-  { t: "Research and policy briefs", d: "Short notes on method, findings and what we are testing next.", format: "PDF" },
-  { t: "Explainers", d: "Plain-language guides to the Right to Information, in English and Urdu.", format: "Guide" },
-  { t: "Reports", d: "Periodic reporting on participation, requests filed and responses received.", format: "Report" },
-  { t: "Media", d: "Press coverage, interviews and statements.", format: "Media" },
+const voices = [
+  {
+    q: "We did not know we were allowed to ask.",
+    d: "The biggest barrier was not the information itself — it was not knowing it was our right, or which office to ask.",
+    photo: "p004-img-0247",
+    alt: "An older woman listening during a meeting.",
+    focus: "40% 30%",
+  },
+  {
+    q: "Knowing the next step turned worry into action.",
+    d: "Once women knew exactly which office to write to, they could act that same week.",
+    photo: "p061-whatsapp-image-2026-09-15-at-11-34-53-am",
+    alt: "Women reading the chatbot's reply on a phone.",
+    focus: "50% 40%",
+  },
+  {
+    q: "Asking together is easier.",
+    d: "One question from one woman is easy to ignore. The same question from a whole group is not.",
+    photo: "p041-whatsapp-image-2026-09-15-at-11-03-15-pm",
+    alt: "Women sitting close together in a group.",
+    focus: "50% 40%",
+  },
 ];
+
+const gallery = [
+  ["p006-img-0257", "Women seated around a room during a consultation meeting.", "3/4"],
+  ["p026-whatsapp-image-2026-09-15-at-10-32-28-pm-1", "Women gathered on a colourful rug.", "4/3"],
+  ["p058-whatsapp-image-2026-09-15-at-11-34-50-am", "A woman using a phone during a session.", "3/4"],
+  ["p066-whatsapp-image-2026-09-16-at-12-32-50-am-1", "A facilitator with women seated on mats.", "4/3"],
+  ["p040-whatsapp-image-2026-09-15-at-11-03-14-pm", "Women sitting together outdoors.", "3/4"],
+  ["p069-whatsapp-image-2026-09-16-at-12-32-51-am", "A group of women holding information sheets.", "4/3"],
+  ["p057-whatsapp-image-2026-09-15-at-11-34-49-am", "Women looking at a phone together.", "3/4"],
+  ["p014-whatsapp-image-2026-08-16-at-7-22-01-pm", "A meeting with women around a table.", "4/3"],
+] as const;
 
 export default function StoriesPage() {
   return (
     <>
       <PageSchema path="/stories" />
-      <PageHero
-        eyebrow="Stories and knowledge hub"
-        title="What women ask for, and what happens next."
-        intro="Community stories, explainers and research. Everything here is published with consent, and everything is described as it is — including the cases that did not go the way we hoped."
+
+      <PhotoHero
+        photo="p026-whatsapp-image-2026-09-15-at-10-32-28-pm-1"
+        alt="Women sitting together on a colourful rug during a Jamhooriyat Saheliyan session."
+        eyebrow="Stories"
+        title={
+          <>
+            Voices from
+            <br />
+            the women of Sindh.
+          </>
+        }
+        intro="What women told us, moments from our sessions, and the latest from our Instagram."
       />
 
-      <section className="relative overflow-hidden bg-plum-deep py-16 md:py-24">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-24 top-0 h-[24rem] w-[24rem] rounded-full bg-pink/10 blur-[130px]"
-        />
-        <div className="shell relative z-10">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Story gallery"
-              title="Faces and moments from the network."
-              intro="Drag, swipe or use the arrows to move through all 100 photographs. The eight written stories come first, followed by the wider archive. Captions that name who, where and with what permission are still being confirmed by the team."
-            />
-          </Reveal>
-          <StorySlider />
-        </div>
-      </section>
-
-      <section className="bg-plum py-16 md:py-20">
+      {/* 1. What women told us */}
+      <section className="bg-white py-20 md:py-28">
         <div className="shell">
-          <StoriesGrid />
-        </div>
-      </section>
-
-      {/* Knowledge hub */}
-      <section className="on-light py-20 md:py-28">
-        <div className="shell">
-          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
-            <div>
-              <Reveal>
-                <SectionHeading
-                  eyebrow="Knowledge hub"
-                  tone="light"
-                  title="Method, not marketing."
-                  intro="The documents a researcher or donor would want before a conversation: how we counted, what we learned, and where we are unsure."
-                />
+          <Title
+            eyebrow="What we heard"
+            title="In their words."
+            intro="Themes from our sessions with women in three districts. We share names and photos only with written consent."
+          />
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {voices.map((v, i) => (
+              <Reveal key={v.q} delay={i * 0.08}>
+                <figure className="group h-full overflow-hidden rounded-[1.4rem] bg-white shadow-[0_24px_50px_-34px_rgba(190,24,93,0.55)]">
+                  <Pic photo={v.photo} alt={v.alt} aspect="4/5" rounded="rounded-none" focus={v.focus} sizes="(max-width: 768px) 92vw, 30vw" />
+                  <blockquote className="p-6">
+                    <p className="font-serif text-[1.6rem] font-semibold leading-snug text-ink">&ldquo;{v.q}&rdquo;</p>
+                    <p className="mt-3 text-[0.94rem] leading-relaxed text-ink/65">{v.d}</p>
+                  </blockquote>
+                </figure>
               </Reveal>
-              <Reveal delay={0.12}>
-                <div className="mt-8">
-                  <Photo
-                    slot="partnersTalk"
-                    aspect="4/3"
-                    sizes="(max-width: 1024px) 92vw, 38vw"
-                    rounded="rounded-[1.3rem]"
-                    caption
-                  />
-                </div>
-              </Reveal>
-            </div>
-
-            <div className="space-y-3">
-              {resources.map((r, i) => (
-                <Reveal key={r.t} delay={i * 0.06}>
-                  <div className="group flex items-center gap-5 rounded-xl border border-ink/10 bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-ink/5">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-violet/8 font-display text-[0.6rem] font-bold uppercase tracking-wider text-violet">
-                      {r.format}
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <h3 className="font-display text-[1rem] font-semibold text-ink">{r.t}</h3>
-                      <p className="mt-0.5 text-[0.85rem] leading-relaxed text-ink/65">{r.d}</p>
-                    </div>
-                    <span className="shrink-0 rounded-full bg-ink/5 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-wider text-ink/60">
-                      Soon
-                    </span>
-                  </div>
-                </Reveal>
-              ))}
-
-              <Reveal delay={0.28}>
-                <p className="pt-2 text-[0.78rem] leading-relaxed text-ink/65">
-                  Documents are added as they are cleared for publication. To request a specific
-                  brief, write to{" "}
-                  <a href="mailto:media@jamhooriyatsaheliyan.org" className="text-violet underline underline-offset-2">
-                    media@jamhooriyatsaheliyan.org
-                  </a>
-                  .
-                </p>
-              </Reveal>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Consent note */}
-      <section className="bg-plum-deep py-16">
+      {/* 2. Instagram */}
+      <InstagramProfile />
+
+      {/* 3. Photo moments */}
+      <section className="bg-white py-20 md:py-28">
         <div className="shell">
-          <Reveal>
-            <div className="flex flex-col gap-5 rounded-2xl border border-rose/15 bg-plum/40 p-7 sm:flex-row sm:items-center sm:justify-between">
-              <div className="max-w-2xl">
-                <p className="eyebrow">Consent and safety</p>
-                <p className="mt-3 text-[0.95rem] leading-relaxed text-ink/65">
-                  No story, quote, photo or video is published without written consent. Captions
-                  state who, where and with what permission. Anyone can ask us to withdraw a story
-                  at any time, and we will.
-                </p>
+          <Title eyebrow="Moments" title="From our sessions." />
+          <div className="mt-12 columns-2 gap-3 sm:gap-4 lg:columns-4">
+            {gallery.map(([id, alt, aspect]) => (
+              <div key={id} className="mb-3 break-inside-avoid sm:mb-4">
+                <Pic photo={id} alt={alt} aspect={aspect} rounded="rounded-2xl" sizes="(max-width: 1024px) 46vw, 23vw" />
               </div>
-              <Link href="/contact" className="btn btn-ghost shrink-0">
-                Contact us
-              </Link>
-            </div>
-          </Reveal>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link href="/gallery" className="btn btn-pink">
+              See all photos
+            </Link>
+          </div>
         </div>
       </section>
 
-      <CTABand
-        eyebrow="Contribute"
-        title="Have a story to tell?"
-        body="If you are part of the network and would like to share what changed for you, we will only publish it with your written consent — and you choose the words."
+      <EndBand
+        title="Have a story to share?"
+        body="If the chatbot or the network helped you, tell us. We publish only with your written consent — and you choose the words."
+        primary={{ href: site.whatsappLink ?? "/contact", label: "Message us on WhatsApp", external: true }}
+        secondary={{ href: "/contact", label: "Contact us" }}
       />
     </>
   );

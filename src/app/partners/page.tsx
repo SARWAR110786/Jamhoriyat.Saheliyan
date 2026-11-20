@@ -1,36 +1,37 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import PageSchema from "@/components/PageSchema";
-import { pageMetadata } from "@/lib/seo";
-import PageHero from "@/components/PageHero";
-import Photo from "@/components/Photo";
 import Reveal from "@/components/Reveal";
-import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
+import { Pic, PhotoHero, Title } from "@/components/PageBits";
+import { pageMetadata } from "@/lib/seo";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = pageMetadata("/partners");
 
-const partnerTypes = [
+const ways = [
   {
-    who: "Funder or climate fund",
-    how: "Support locally led, gender-responsive information access and accountability work, and help us document results.",
+    t: "Fund the work",
+    d: "Donors and foundations: help more women reach the chatbot and follow up on their requests.",
+    photo: "p069-whatsapp-image-2026-09-16-at-12-32-51-am",
+    alt: "Women holding information sheets during a session.",
   },
   {
-    who: "UN agency or development organisation",
-    how: "Align with gender, governance and climate programmes; share learning across communities.",
+    t: "Research with us",
+    d: "Universities: study what changes when women ask. Three university partnerships already exist.",
+    photo: "p052-whatsapp-image-2026-09-15-at-11-31-27-am",
+    alt: "A youth forum session with participants seated in a hall.",
   },
   {
-    who: "Research institution",
-    how: "Evaluate outcomes, test the theory of change, strengthen language and AI approaches. Three university partnerships already exist.",
+    t: "Build the technology",
+    d: "Tech and AI partners: improve language support, voice notes and data safety.",
+    photo: "p064-whatsapp-image-2026-09-16-at-12-32-48-am",
+    alt: "A woman holding a laptop showing the Jamhooriyat Saheliyan project.",
   },
   {
-    who: "Technology or AI-for-good partner",
-    how: "Strengthen language support, safety and secure data practices for low-literacy users.",
-  },
-  {
-    who: "Feminist and civic tech networks",
-    how: "Exchange methods, tools and lessons.",
+    t: "Grow the network",
+    d: "Community groups and civic networks: bring the chatbot to more villages and share lessons.",
+    photo: "p008-img-0284",
+    alt: "Women and facilitators standing together beside the project banners.",
   },
 ];
 
@@ -38,220 +39,112 @@ export default function PartnersPage() {
   return (
     <>
       <PageSchema path="/partners" />
-      <PageHero
-        eyebrow="Partners and collaborate"
-        title="Building the future of inclusive digital democracy."
-        intro="We are looking for partners who believe that technology should widen who takes part in public life, and who are willing to learn with us in the open."
-        image="partnersGroup"
-      >
-        <div className="flex flex-wrap gap-3">
-          <a href="#collaborate" className="btn btn-pink">
-            Start a conversation
-          </a>
-          <Link href="/impact" className="btn btn-ghost">
-            See the evidence
-          </Link>
-        </div>
-      </PageHero>
 
-      {/* Who you are / how we work */}
-      <section className="on-light py-20 md:py-28">
+      <PhotoHero
+        photo="p014-whatsapp-image-2026-08-16-at-7-22-01-pm"
+        alt="Women and facilitators around a meeting table during a Jamhooriyat Saheliyan session."
+        eyebrow="Partner with us"
+        title={
+          <>
+            Let&apos;s reach more
+            <br />
+            women, together.
+          </>
+        }
+        intro="We work with donors, universities, technology partners and community groups who believe every woman should be able to ask her government."
+      >
+        <a href="#collaborate" className="btn bg-white !px-7 !py-4 text-[#9d174d] hover:-translate-y-0.5 hover:bg-[#fff1f6]">
+          Start a conversation
+        </a>
+        <a href="/impact" className="btn border border-white/60 !px-7 !py-4 text-white hover:bg-white/10">
+          See our impact
+        </a>
+      </PhotoHero>
+
+      {/* 1. Ways to partner */}
+      <section className="bg-white py-20 md:py-28">
         <div className="shell">
+          <Title eyebrow="Ways to work with us" title="Find your place in this work." />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {ways.map((w, i) => (
+              <Reveal key={w.t} delay={i * 0.07}>
+                <div className="h-full overflow-hidden rounded-[1.4rem] bg-white shadow-[0_24px_50px_-34px_rgba(190,24,93,0.55)]">
+                  <Pic photo={w.photo} alt={w.alt} aspect="4/3" rounded="rounded-none" sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 23vw" />
+                  <div className="p-6">
+                    <h3 className="font-serif text-[1.55rem] font-semibold leading-tight tracking-normal text-ink">{w.t}</h3>
+                    <p className="mt-2 text-[0.93rem] leading-relaxed text-ink/68">{w.d}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Why partner */}
+      <section className="bg-[#9d174d] py-20 text-white md:py-28">
+        <div className="shell grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <Reveal>
-            <SectionHeading
-              eyebrow="Ways to work together"
-              tone="light"
-              title="You are a…"
-              intro="Tell us which of these describes you, and we will come with a specific proposal rather than a general pitch."
+            <Title light align="left" eyebrow="Why us" title="Built with women, and open about results." />
+            <ul className="mt-8 space-y-4">
+              {[
+                "A live WhatsApp chatbot that women already use",
+                "200 women co-created it; 157 act together in our network",
+                "We share the data behind every number we publish",
+                "Every photo and story is published with consent",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-3 text-[1.04rem] text-white/92">
+                  <span className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-white text-[0.75rem] font-bold text-[#9d174d]">✓</span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <Pic
+              photo="p059-whatsapp-image-2026-09-15-at-11-34-52-am-1"
+              alt="Women using the chatbot on their phones."
+              aspect="4/5"
+              className="shadow-[0_40px_80px_-40px_rgba(0,0,0,0.6)]"
             />
           </Reveal>
-
-          <div className="mt-10 overflow-hidden rounded-2xl border border-ink/10 bg-white">
-            <table className="w-full text-left">
-              <caption className="sr-only">Partner types and how we can work together</caption>
-              <thead>
-                <tr className="border-b border-ink/10 bg-ink/4 text-[0.66rem] uppercase tracking-[0.14em] text-ink/65">
-                  <th scope="col" className="px-6 py-3.5 font-semibold">
-                    You are a…
-                  </th>
-                  <th scope="col" className="px-6 py-3.5 font-semibold">
-                    How we can work together
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {partnerTypes.map((p) => (
-                  <tr key={p.who} className="group border-b border-ink/6 last:border-0">
-                    <td className="w-[38%] px-6 py-5 align-top">
-                      <span className="font-display text-[1rem] font-semibold leading-snug text-ink">
-                        {p.who}
-                      </span>
-                    </td>
-                    <td className="px-6 py-5 text-[0.92rem] leading-relaxed text-ink/65">
-                      {p.how}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <Reveal delay={0.12}>
-            <p className="mt-5 text-[0.78rem] leading-relaxed text-ink/65">
-              Three university partnerships exist today. Named partners and logos are published
-              only once confirmed in writing.
-            </p>
-          </Reveal>
         </div>
       </section>
 
-      {/* Photo band */}
-      <section className="bg-plum py-16 md:py-20">
-        <div className="shell">
-          <div className="grid gap-4 sm:grid-cols-3">
-            <Reveal>
-              <Photo
-                slot="partnersRoom"
-                aspect="4/5"
-                sizes="(max-width: 640px) 92vw, 30vw"
-                rounded="rounded-[1.2rem]"
-                caption
-              />
-            </Reveal>
-            <Reveal delay={0.08}>
-              <Photo
-                slot="partnersTalk"
-                aspect="4/5"
-                sizes="(max-width: 640px) 92vw, 30vw"
-                rounded="rounded-[1.2rem]"
-              />
-            </Reveal>
-            <Reveal delay={0.16}>
-              <Photo
-                slot="extraFour"
-                aspect="4/5"
-                sizes="(max-width: 640px) 92vw, 30vw"
-                rounded="rounded-[1.2rem]"
-              />
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Collaborate */}
-      <section id="collaborate" className="relative scroll-mt-20 overflow-hidden bg-plum-deep py-20 md:py-28">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-32 top-0 h-[30rem] w-[30rem] rounded-full bg-pink/10 blur-[150px]"
-        />
-        <div className="shell relative z-10">
-          <div className="grid gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-            <div>
-              <Reveal>
-                <SectionHeading
-                  eyebrow="Call to action"
-                  title="Work with us."
-                  intro="Tell us what you would like to build, fund or learn together. We reply to every serious enquiry, and we will tell you honestly if it is not a fit."
-                />
-              </Reveal>
-
-              <Reveal delay={0.1}>
-                <div className="mt-9 space-y-4 border-t border-rose/12 pt-7">
-                  <ContactRow label="Email" value={site.email} href={`mailto:${site.email}`} />
-                  <ContactRow
-                    label="Media"
-                    value={site.pressEmail}
-                    href={`mailto:${site.pressEmail}`}
-                  />
-                  <ContactRow label="Based in" value={site.address} />
-                  <ContactRow label="Office hours" value={site.officeHours} />
-                </div>
-              </Reveal>
-
-              <Reveal delay={0.16}>
-                <div className="mt-8 rounded-xl border border-rose/15 bg-plum/40 p-5">
-                  <p className="text-[0.8rem] leading-relaxed text-ink/65">
-                    We collect only what is needed to respond. We do not sell or share your details.
-                    Women using our service can ask us to delete their data at any time.
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-
-            <Reveal delay={0.08}>
-              <div className="rounded-2xl border border-rose/15 bg-plum/50 p-6 backdrop-blur sm:p-8">
-                <h2 className="font-display text-xl font-semibold text-ink">
-                  Tell us about your interest
-                </h2>
-                <p className="mt-1.5 text-[0.85rem] text-ink/62">
-                  A short message is enough to start.
+      {/* 3. Contact form */}
+      <section id="collaborate" className="on-light scroll-mt-20 py-20 md:py-28">
+        <div className="shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          <Reveal>
+            <Title
+              align="left"
+              eyebrow="Get in touch"
+              title="Tell us what you'd like to do."
+              intro="A short message is enough. We reply to every serious enquiry — and we'll tell you honestly if it isn't a fit."
+            />
+            <div className="mt-8 space-y-3 text-[0.98rem] text-ink/75">
+              <p>
+                📧{" "}
+                <a href={`mailto:${site.email}`} className="font-semibold text-pink-deep underline underline-offset-2">
+                  {site.email}
+                </a>
+              </p>
+              {site.whatsappLink && (
+                <p>
+                  💬{" "}
+                  <a href={site.whatsappLink} target="_blank" rel="noopener noreferrer" className="font-semibold text-pink-deep underline underline-offset-2">
+                    WhatsApp {site.whatsappNumber}
+                  </a>
                 </p>
-                <div className="mt-6">
-                  <ContactForm variant="partner" />
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Due diligence */}
-      <section className="on-ivory-warm py-20 md:py-24">
-        <div className="shell">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-            <Reveal>
-              <SectionHeading
-                eyebrow="Due diligence"
-                tone="light"
-                title="What we can share before you commit."
-              />
-            </Reveal>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {[
-                ["Reporting sheets", "The underlying data behind every published figure."],
-                ["Method notes", "How participation and reports were counted."],
-                ["Consent records", "The permission behind every photo and quote."],
-                ["Governance", "Who decides, who holds the data, and how access is logged."],
-              ].map(([t, d], i) => (
-                <Reveal key={t} delay={i * 0.06}>
-                  <div className="rounded-xl border border-ink/10 bg-white p-5">
-                    <p className="font-display text-[0.95rem] font-semibold text-ink">{t}</p>
-                    <p className="mt-1.5 text-[0.85rem] leading-relaxed text-ink/65">{d}</p>
-                  </div>
-                </Reveal>
-              ))}
+              )}
             </div>
-          </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="rounded-[1.6rem] border border-pink/15 bg-white p-6 shadow-[0_30px_70px_-45px_rgba(190,24,93,0.55)] sm:p-8">
+              <ContactForm variant="partner" />
+            </div>
+          </Reveal>
         </div>
       </section>
     </>
-  );
-}
-
-function ContactRow({
-  label,
-  value,
-  href,
-}: {
-  label: string;
-  value: string;
-  href?: string;
-}) {
-  return (
-    <div className="flex items-baseline justify-between gap-6">
-      <span className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-orchid-light">
-        {label}
-      </span>
-      {href ? (
-        <a
-          href={href}
-          className="link-underline break-all text-right text-[0.9rem] text-ink/75 hover:text-ink"
-        >
-          {value}
-        </a>
-      ) : (
-        <span className="text-right text-[0.9rem] text-ink/60">{value}</span>
-      )}
-    </div>
   );
 }
