@@ -34,13 +34,17 @@ export default function SiteHeader() {
   }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "border-b border-rose/10 bg-white/90 shadow-[0_8px_30px_-20px_rgba(190,24,93,0.35)] backdrop-blur-xl"
-          : "border-b border-ink/5 bg-white/85 backdrop-blur-xl"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/* The blurred background lives on its own layer: a backdrop-filter on
+          <header> itself would trap the fixed mobile panel inside the bar. */}
+      <div
+        aria-hidden
+        className={`absolute inset-x-0 top-0 -z-10 h-[4.5rem] backdrop-blur-xl transition-all duration-500 ${
+          scrolled || open
+            ? "border-b border-rose/10 bg-white/95 shadow-[0_8px_30px_-20px_rgba(190,24,93,0.35)]"
+            : "border-b border-ink/5 bg-white/85"
+        }`}
+      />
       <div className="shell flex h-[4.5rem] items-center justify-between gap-4">
         <Logo />
 
@@ -101,7 +105,7 @@ export default function SiteHeader() {
       <div
         id="mobile-nav"
         hidden={!open}
-        className="fixed inset-x-0 top-[4.5rem] bottom-0 z-40 overflow-y-auto border-t border-rose/10 bg-plum/97 px-5 pb-10 pt-6 backdrop-blur-2xl lg:hidden"
+        className="fixed inset-x-0 top-[4.5rem] bottom-0 z-40 overflow-y-auto border-t border-rose/10 bg-white px-5 pb-10 pt-6 lg:hidden"
       >
         <nav aria-label="Mobile" className="flex flex-col">
           {[...nav, { label: "Contact", href: "/contact" }].map((item, i) => (
