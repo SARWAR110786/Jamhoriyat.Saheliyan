@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Public_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Cormorant_Garamond, Public_Sans } from "next/font/google";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFab from "@/components/WhatsAppFab";
@@ -13,6 +13,14 @@ const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
+});
+
+// Elegant serif for big headings (h1/h2), in the spirit of mehfooz.ai.
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-cormorant",
+  display: "swap",
+  weight: ["500", "600", "700"],
 });
 
 const publicSans = Public_Sans({
@@ -83,7 +91,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${publicSans.variable}`}>
+    <html lang="en" className={`${bricolage.variable} ${cormorant.variable} ${publicSans.variable}`}>
       <body className="min-h-dvh bg-plum font-sans text-ink antialiased">
         <StructuredData data={[organizationSchema(), websiteSchema()]} />
         <a
