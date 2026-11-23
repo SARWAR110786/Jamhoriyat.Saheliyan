@@ -26,8 +26,8 @@ export const site = {
   locale: "en_PK",
 
   // ── Contact ────────────────────────────────────────────────────────────────
-  email: "info@jhamoriyatsaheliyan.online", // from the chatbot Help message
-  pressEmail: "info@jhamoriyatsaheliyan.online",
+  email: "collectivepakistan@gmail.com",
+  pressEmail: "collectivepakistan@gmail.com",
   phone: null as string | null, // [TBC]
   address: "Sindh, Pakistan",
   officeHours: "Monday to Friday, 10:00–17:00 (PKT)",

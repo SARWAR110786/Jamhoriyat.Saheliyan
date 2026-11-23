@@ -121,7 +121,7 @@ export async function POST(req: Request) {
         {
           ok: false,
           error: `We could not deliver your message. Please email ${
-            process.env.CONTACT_INBOX ?? "info@jhamoriyatsaheliyan.online"
+            process.env.CONTACT_INBOX ?? "collectivepakistan@gmail.com"
           } directly.`,
         },
         { status: 502 },
@@ -138,7 +138,7 @@ export async function POST(req: Request) {
         {
           ok: false,
           error: `Our contact form is not connected yet. Please email ${
-            process.env.CONTACT_INBOX ?? "info@jhamoriyatsaheliyan.online"
+            process.env.CONTACT_INBOX ?? "collectivepakistan@gmail.com"
           } directly.`,
         },
         { status: 503 },
