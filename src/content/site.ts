@@ -22,12 +22,12 @@ export const site = {
    * the whole site at the real domain. NEXT_PUBLIC_ values are inlined at build
    * time, so a change requires a new deployment.
    */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://jamhooriyatsaheliyan.org").replace(/\/$/, ""),
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://jamhoriyatsaheliyan.com").replace(/\/$/, ""),
   locale: "en_PK",
 
   // ── Contact ────────────────────────────────────────────────────────────────
-  email: "hello@jamhooriyatsaheliyan.org", // [TBC] official inbox
-  pressEmail: "media@jamhooriyatsaheliyan.org", // [TBC]
+  email: "info@jhamoriyatsaheliyan.online", // from the chatbot Help message
+  pressEmail: "info@jhamoriyatsaheliyan.online",
   phone: null as string | null, // [TBC]
   address: "Sindh, Pakistan",
   officeHours: "Monday to Friday, 10:00–17:00 (PKT)",
