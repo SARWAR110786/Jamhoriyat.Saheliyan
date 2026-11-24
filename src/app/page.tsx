@@ -3,6 +3,7 @@ import Photo from "@/components/Photo";
 import Reveal from "@/components/Reveal";
 import CTABand from "@/components/CTABand";
 import ChatDemo from "@/components/ChatDemo";
+import StoryVideo from "@/components/StoryVideo";
 import PhoneSteps from "@/components/PhoneSteps";
 import InstagramProfile from "@/components/InstagramProfile";
 import { site } from "@/content/site";
@@ -10,6 +11,7 @@ import { site } from "@/content/site";
 /**
  * Home page — kept deliberately simple (inspired by mehfooz.ai):
  *   1. Hero with background video: what we offer, in one line
+ *   1b. Our story: the project film
  *   2. See it work: the chatbot conversation, animated
  *   3. How it works: five steps on a phone
  *   4. What you can ask about
@@ -21,6 +23,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <OurStory />
       <SeeItWork />
       <HowItWorks />
       <WhatYouCanAsk />
@@ -108,7 +111,7 @@ function Hero() {
       </div>
 
       <a
-        href="#see-it-work"
+        href="#our-story"
         className="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-white/75 hover:text-white"
       >
         Learn more
@@ -116,6 +119,55 @@ function Hero() {
           <path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </a>
+    </section>
+  );
+}
+
+/* ──────────────────────────────────────────────────────── Our story film ─── */
+function OurStory() {
+  // Figures as stated in the film.
+  const results = [
+    ["100", "women trained in RTI"],
+    ["25+", "RTI applications filed (target was 20)"],
+    ["300+", "women in our WhatsApp community"],
+    ["10–15", "women use the chatbot every day"],
+  ];
+  return (
+    <section id="our-story" aria-labelledby="our-story-heading" className="scroll-mt-20 bg-white pt-16 pb-6 md:pt-24 md:pb-10">
+      <div className="shell">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="eyebrow justify-center">Our story</p>
+          <h2 id="our-story-heading" className="mt-4 text-[clamp(2.1rem,4.6vw,3.4rem)] text-ink">
+            Empowering rural women to ask, know and act.
+          </h2>
+          <p className="mt-4 text-[1.04rem] leading-relaxed text-ink/70">
+            Women in Thatta, Badin and Hyderabad co-created a WhatsApp RTI service. Instead of adapting women to technology, we adapted the technology to women&apos;s
+            realities. Watch how it happened.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-10 max-w-5xl">
+          <StoryVideo />
+          <p className="mt-3 text-center text-[0.78rem] text-ink/50">
+            A project of Collective Pakistan, supported by CIVICUS, ADI South Asia, Accountability
+            Lab and the Digital Democracy Initiative.
+          </p>
+        </div>
+
+        <dl className="mx-auto mt-10 grid max-w-5xl grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          {results.map(([n, l]) => (
+            <div key={l} className="rounded-2xl border border-pink/15 bg-[#fff8fb] p-5 text-center">
+              <dt className="sr-only">{l}</dt>
+              <dd>
+                <span className="block font-serif text-[clamp(2.2rem,4vw,2.9rem)] font-semibold leading-none text-pink-deep">
+                  {n}
+                </span>
+                <span className="mt-2 block text-[0.82rem] leading-snug text-ink/65">{l}</span>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
     </section>
   );
 }
