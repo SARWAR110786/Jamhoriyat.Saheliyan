@@ -34,7 +34,7 @@ export function organizationSchema() {
       width: 512,
       height: 512,
     },
-    image: `${site.url}/og.png`,
+    image: `${site.url}/og.jpg`,
     description: DESCRIPTION,
     foundingLocation: {
       "@type": "Place",

@@ -32,12 +32,18 @@ const publicSans = Public_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Information is power`,
+    default: `${site.name} — Free WhatsApp RTI chatbot for women in Sindh`,
     template: `%s | ${site.name}`,
   },
   description:
-    "Jamhooriyat Saheliyan is a women-led feminist civic technology initiative in Pakistan, helping rural women access public information, use their right to information and shape climate governance.",
+    "Jamhooriyat Saheliyan (جمہوریت سہیلیاں) is a women-led initiative in Sindh, Pakistan. Our free WhatsApp AI chatbot helps women ask government offices about water, schools, hospitals and development, and writes their Right to Information (RTI) application in English, Urdu or Sindhi.",
   keywords: [
+    "Jamhooriyat Saheliyan",
+    "Jamhoriyat Saheliyan",
+    "RTI chatbot",
+    "WhatsApp RTI",
+    "right to information Sindh",
+    "Sindh Transparency and RTI Act 2016",
     "feminist civic technology",
     "right to information",
     "rural women Sindh",
@@ -55,17 +61,25 @@ export const metadata: Metadata = {
     locale: "en_PK",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Information is power`,
+    title: `${site.name} — Your right to know, now on WhatsApp`,
     description:
-      "Community-rooted, accessible technology that helps rural women in Sindh access public information, take part in democracy and shape climate governance.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: site.name }],
+      "A free AI chatbot that helps women in Sindh ask government offices and writes the RTI application for you. English, Urdu and Sindhi.",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Jamhooriyat Saheliyan — Your right to know, now on WhatsApp",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Information is power`,
+    title: `${site.name} — Your right to know, now on WhatsApp`,
     description:
-      "Community-rooted, accessible technology that helps rural women in Sindh access public information, take part in democracy and shape climate governance.",
-    images: ["/og.png"],
+      "A free AI chatbot that helps women in Sindh ask government offices and writes the RTI application for you. English, Urdu and Sindhi.",
+    images: ["/og.jpg"],
   },
   robots: {
     index: true,

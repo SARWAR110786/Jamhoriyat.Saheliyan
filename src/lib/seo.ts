@@ -9,7 +9,7 @@ import { site } from "@/content/site";
  * never disagree with its own structured data.
  */
 
-export const OG_IMAGE = { url: "/og.png", width: 1200, height: 630 } as const;
+export const OG_IMAGE = { url: "/og.jpg", width: 1200, height: 630, type: "image/jpeg" } as const;
 
 export type PageKey =
   | "/about"
