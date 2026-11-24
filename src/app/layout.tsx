@@ -1,5 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Cormorant_Garamond, Public_Sans } from "next/font/google";
+// Fonts are bundled with the site (Fontsource packages) instead of being
+// downloaded from Google Fonts during the build, which can fail on the host.
+import "@fontsource/bricolage-grotesque/400.css";
+import "@fontsource/bricolage-grotesque/500.css";
+import "@fontsource/bricolage-grotesque/600.css";
+import "@fontsource/bricolage-grotesque/700.css";
+import "@fontsource/bricolage-grotesque/800.css";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/600.css";
+import "@fontsource/cormorant-garamond/700.css";
+import "@fontsource/public-sans/400.css";
+import "@fontsource/public-sans/500.css";
+import "@fontsource/public-sans/600.css";
+import "@fontsource/public-sans/700.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WhatsAppFab from "@/components/WhatsAppFab";
@@ -7,27 +20,6 @@ import StructuredData from "@/components/StructuredData";
 import { site } from "@/content/site";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import "./globals.css";
-
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  variable: "--font-bricolage",
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-// Elegant serif for big headings (h1/h2), in the spirit of mehfooz.ai.
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  variable: "--font-cormorant",
-  display: "swap",
-  weight: ["500", "600", "700"],
-});
-
-const publicSans = Public_Sans({
-  subsets: ["latin"],
-  variable: "--font-public",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -110,7 +102,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${bricolage.variable} ${cormorant.variable} ${publicSans.variable}`}>
+    <html lang="en">
       <body className="min-h-dvh bg-plum font-sans text-ink antialiased">
         <StructuredData data={[organizationSchema(), websiteSchema()]} />
         <a

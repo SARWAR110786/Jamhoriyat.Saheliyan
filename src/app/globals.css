@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Font family names provided by the bundled Fontsource packages (see layout.tsx). */
+:root {
+  --font-bricolage: "Bricolage Grotesque";
+  --font-cormorant: "Cormorant Garamond";
+  --font-public: "Public Sans";
+}
+
 @theme {
   /* ── Brand palette: white + pink ─────────────────────────────────
      The token NAMES are kept from the first (dark plum) design so every
