@@ -92,6 +92,11 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
+  // Ask AI tools not to use this content (honoured by some crawlers and
+  // image tools; search indexing is unaffected).
+  other: {
+    "tdm-reservation": "1",
+  },
   alternates: {
     canonical: "/",
     languages: { "en-PK": "/" },

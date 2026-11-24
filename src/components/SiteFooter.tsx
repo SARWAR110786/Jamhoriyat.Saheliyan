@@ -97,7 +97,8 @@ export default function SiteFooter() {
 
         <div className="mt-14 flex flex-col gap-4 border-t border-rose/10 pt-7 text-xs text-ink/62 md:flex-row md:items-center md:justify-between">
           <p>
-            © {year} {site.name}. All rights reserved.
+            © {year} {site.name}. All rights reserved. Text, photos and design may not be copied, scraped
+              or used to train AI without written permission.
           </p>
           <p className="max-w-xl md:text-right">
             Impact figures are initiative-reported. Every figure carries a reporting period and a
