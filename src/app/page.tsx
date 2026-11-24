@@ -362,7 +362,8 @@ function WhoWeAre() {
                 A women-led initiative from Sindh.
               </h2>
               <p className="mt-5 text-[1.05rem] leading-relaxed text-ink/70">
-                Jamhooriyat Saheliyan means &ldquo;friends of democracy&rdquo;. We work with women in
+                Jamhooriyat Saheliyan (also written Jamhoriyat Saheliyan, جمہوریت سہیلیاں) means
+                &ldquo;friends of democracy&rdquo;. We are a project of Collective Pakistan. We work with women in
                 rural Sindh so they can ask questions of the government offices that decide about
                 their water, schools, health and climate — and get answers.
               </p>

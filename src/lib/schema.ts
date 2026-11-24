@@ -18,7 +18,17 @@ const socialLinks = site.social
   .filter((href): href is string => Boolean(href));
 
 const DESCRIPTION =
-  "Women-led feminist civic technology initiative in Pakistan, helping rural women access public information, use their right to information and shape climate governance.";
+  "Jamhooriyat Saheliyan (Jamhoriyat Saheliyan, جمہوریت سہیلیاں) is a women-led initiative of Collective Pakistan in Thatta, Badin and Hyderabad, Sindh. Its free WhatsApp AI chatbot helps women use the Right to Information and writes RTI applications in English, Urdu and Sindhi.";
+
+/** Every way people write the name, so search engines connect them all. */
+const NAME_VARIANTS = [
+  "Jamhoriyat Saheliyan",
+  "Jamhuriyat Saheliyan",
+  "Jamhooriat Saheliyan",
+  "Jamhoriyat Saheli",
+  "جمہوریت سہیلیاں",
+  "Jamhooriyat Saheliyan RTI Chatbot",
+];
 
 export function organizationSchema() {
   return {
@@ -26,8 +36,13 @@ export function organizationSchema() {
     "@type": "Organization",
     "@id": ORG_ID,
     name: site.name,
-    alternateName: site.shortName,
+    alternateName: [site.shortName, ...NAME_VARIANTS],
     url: site.url,
+    email: site.email,
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Collective Pakistan",
+    },
     logo: {
       "@type": "ImageObject",
       url: `${site.url}/logo.png`,
@@ -56,6 +71,7 @@ export function websiteSchema() {
     "@id": WEBSITE_ID,
     url: site.url,
     name: site.name,
+    alternateName: NAME_VARIANTS,
     description: DESCRIPTION,
     inLanguage: "en-PK",
     publisher: { "@id": ORG_ID },
