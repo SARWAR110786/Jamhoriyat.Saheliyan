@@ -29,7 +29,8 @@ export default function StoryVideo({
     const v = video.current;
     if (!v) return;
     v.muted = false;
-    void v.play();
+    // Some phones (e.g. power-saving mode) refuse play(); controls are shown, so the visitor can tap play there.
+    v.play().catch(() => {});
   };
 
   return (
