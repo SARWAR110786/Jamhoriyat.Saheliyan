@@ -14,6 +14,7 @@ import { site } from "@/content/site";
  *   1b. Our story: the project film
  *   2. See it work: the chatbot conversation, animated
  *   3. How it works: five steps on a phone
+ *   3b. Inside the RTI × AI workshop (reel)
  *   4. What you can ask about
  *   5. Who we are
  *   6. Instagram
@@ -26,6 +27,7 @@ export default function HomePage() {
       <OurStory />
       <SeeItWork />
       <HowItWorks />
+      <Workshop />
       <WhatYouCanAsk />
       <WhoWeAre />
       <InstagramProfile />
@@ -241,6 +243,99 @@ function HowItWorks() {
         </div>
         <div className="mt-14">
           <PhoneSteps />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ──────────────────────────────────────────────── RTI × AI workshop reel ─── */
+function Workshop() {
+  const steps = [
+    ["Address the Designated Officer", "Write to the officer named for RTI requests in that department."],
+    ["Clearly ask for the information", "Say exactly which record, budget or detail you want."],
+    ["Provide your contact details", "So the office can send you the reply."],
+    ["Submit the application", "By email or by hand — then follow up if there is no answer."],
+  ];
+  const focus = [
+    "Civic Education & Democratic Participation",
+    "Digital Literacy & Responsible Digital Citizenship",
+    "Women Leadership & Community Mobilization",
+    "Human Rights & Inclusive Governance",
+    "Community-Led Tech Solutions",
+  ];
+  return (
+    <section id="workshop" aria-labelledby="workshop-heading" className="scroll-mt-20 bg-white py-20 md:py-28">
+      <div className="shell grid items-center gap-12 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-20">
+        <Reveal>
+          <div className="mx-auto w-full max-w-[21rem]">
+            <StoryVideo
+              portrait
+              src="/video/workshop.mp4"
+              poster="/video/workshop-poster.jpg"
+              label="Watch · 0:56 · with sound"
+              ariaLabel="Play the RTI and AI workshop video, 56 seconds, with sound"
+            />
+          </div>
+        </Reveal>
+
+        <div>
+          <Reveal>
+            <p className="eyebrow">RTI × AI Workshop</p>
+            <h2 id="workshop-heading" className="mt-4 text-[clamp(2.1rem,4.4vw,3.2rem)] text-ink">
+              Two days on the Right to Information and building our AI chatbot.
+            </h2>
+            <p className="mt-5 text-[1.05rem] leading-relaxed text-ink/70">
+              In our workshop, women learned how to file an RTI request step by step — and helped
+              shape the WhatsApp chatbot that now does it with them.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.08}>
+            <h3 className="mt-9 font-display text-[1.1rem] font-semibold text-ink">How to file an RTI, in 4 steps</h3>
+            <ol className="mt-4 grid gap-3 sm:grid-cols-2">
+              {steps.map(([t, d], i) => (
+                <li key={t} className="flex gap-3 rounded-2xl border border-pink/15 bg-[#fff8fb] p-4">
+                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-pink-deep font-display text-[0.85rem] font-bold text-white">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <p className="font-display text-[0.98rem] font-semibold leading-snug text-ink">{t}</p>
+                    <p className="mt-1 text-[0.86rem] leading-relaxed text-ink/62">{d}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
+
+          <Reveal delay={0.14}>
+            <h3 className="mt-9 font-display text-[1.1rem] font-semibold text-ink">Our five focus areas</h3>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {focus.map((f, i) => (
+                <li
+                  key={f}
+                  className="rounded-full border border-pink/25 bg-white px-4 py-2 text-[0.88rem] font-medium text-ink/80"
+                >
+                  <span className="mr-1.5 font-bold text-pink-deep">{i + 1}</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            {site.whatsappLink && (
+              <a
+                href={site.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-pink mt-9"
+              >
+                <WhatsAppGlyph />
+                Your right to know — try it on WhatsApp
+              </a>
+            )}
+          </Reveal>
         </div>
       </div>
     </section>

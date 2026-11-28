@@ -7,7 +7,20 @@ import { useRef, useState } from "react";
  * sound. It shows a cover with a large play button and only starts loading
  * the video when the visitor presses play, so the page stays fast.
  */
-export default function StoryVideo() {
+export default function StoryVideo({
+  src = "/video/our-story.mp4",
+  poster = "/video/our-story-poster.jpg",
+  label = "Watch our story · 1:25 · with sound",
+  ariaLabel = "Play the Jamhooriyat Saheliyan film, 1 minute 25 seconds, with sound",
+  portrait = false,
+}: {
+  src?: string;
+  poster?: string;
+  label?: string;
+  ariaLabel?: string;
+  /** Vertical (9:16) video, e.g. a phone reel. */
+  portrait?: boolean;
+} = {}) {
   const video = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
 
@@ -23,9 +36,9 @@ export default function StoryVideo() {
     <div className="relative overflow-hidden rounded-[1.6rem] bg-black shadow-[0_40px_90px_-45px_rgba(157,23,77,0.75)] ring-1 ring-pink/15">
       <video
         ref={video}
-        className="block aspect-video w-full bg-black"
-        src="/video/our-story.mp4"
-        poster="/video/our-story-poster.jpg"
+        className={`block w-full bg-black ${portrait ? "aspect-[9/16]" : "aspect-video"}`}
+        src={src}
+        poster={poster}
         preload="none"
         playsInline
         controls={started}
@@ -40,7 +53,7 @@ export default function StoryVideo() {
         <button
           type="button"
           onClick={play}
-          aria-label="Play the Jamhooriyat Saheliyan film, 1 minute 25 seconds, with sound"
+          aria-label={ariaLabel}
           className="group absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[linear-gradient(180deg,rgba(40,4,22,0.15)_0%,rgba(40,4,22,0.55)_100%)] text-white"
         >
           <span className="relative grid h-20 w-20 place-items-center rounded-full bg-white text-pink-deep shadow-[0_20px_50px_-15px_rgba(0,0,0,0.6)] transition duration-300 group-hover:scale-105 sm:h-24 sm:w-24">
@@ -50,7 +63,7 @@ export default function StoryVideo() {
             </svg>
           </span>
           <span className="rounded-full bg-black/45 px-4 py-1.5 text-[0.85rem] font-semibold backdrop-blur">
-            Watch our story · 1:25 · with sound
+            {label}
           </span>
         </button>
       )}
