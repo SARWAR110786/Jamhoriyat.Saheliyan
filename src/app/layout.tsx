@@ -100,9 +100,25 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+/**
+ * Always serve fresh HTML. Static pages were cached by the host CDN for a year,
+ * so after a deploy some visitors got an old page pointing at deleted JS files
+ * ("Application error: a client-side exception has occurred").
+ */
+export const dynamic = "force-dynamic";
+
+/** If a JS chunk from an older deploy is missing, reload once to get the new page. */
+const CHUNK_RECOVERY = `(function(){function bad(m){return /ChunkLoadError|Loading chunk|Loading CSS chunk|Failed to fetch dynamically imported module|_next\\/static/i.test(String(m||""))}
+function go(){try{var k="js-reloaded",t=Date.now(),p=+sessionStorage.getItem(k)||0;if(t-p<30000)return;sessionStorage.setItem(k,String(t))}catch(e){}location.reload()}
+addEventListener("error",function(e){var s=e.target&&(e.target.src||e.target.href);if(bad(e.message)||(s&&/\\/_next\\/static\\//.test(s)))go()},true);
+addEventListener("unhandledrejection",function(e){var r=e.reason;if(bad(r&&(r.name+" "+r.message)))go()})})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: CHUNK_RECOVERY }} />
+      </head>
       <body className="min-h-dvh bg-plum font-sans text-ink antialiased">
         <StructuredData data={[organizationSchema(), websiteSchema()]} />
         <a
